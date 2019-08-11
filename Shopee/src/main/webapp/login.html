@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(function() {
+	$("#loginButton").click(function(evt){
+		evt.preventDefault();
+		var obj = {
+				email: $("#email").val(),
+				password: $("#password").val()
+		}
+		//alert(obj);
+		$.ajax({
+				url : 'UserLogin.lti',
+				method : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(obj),
+				success: function(response) {
+					alert(JSON.stringify(response));
+					if (response == "true") {
+						window.location.href = "home.html";
+					} 
+					else {
+						
+						$("#error").html("Invalid credentials");
+					}
+				}
+		})
+	})
+})
+
+</script>
+
+<body>
+	<form>
+		<input type = "text" placeholder="enter email" id="email">
+		<input type = "password" placeholder="enter password" id="password">
+		<div id="error"></div>
+		<button type= "submit"  id="loginButton">login</button>
+	</form>
+</body>
+</html>
