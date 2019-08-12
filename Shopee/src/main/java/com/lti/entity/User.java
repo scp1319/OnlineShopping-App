@@ -2,6 +2,7 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,10 +12,47 @@ public class User {
 	
 	@Id
 	@Column(name="USER_ID")
+	@GeneratedValue
 	private int id;
 
 	private String email;
 	private String password;
+	private String name;
+	private String address;
+	@Column(name="mob_no")
+	private long mobNo;	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public long getMobNo() {
+		return mobNo;
+	}
+
+	public void setMobNo(long mobNo) {
+		this.mobNo = mobNo;
+	}
 
 	public User() {
 	}
