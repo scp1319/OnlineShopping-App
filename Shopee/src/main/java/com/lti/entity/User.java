@@ -22,13 +22,7 @@ public class User {
 	@Column(name="mob_no")
 	private long mobNo;	
 	
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
