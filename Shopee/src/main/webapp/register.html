@@ -26,7 +26,8 @@ $(function(){
 		data: JSON.stringify(obj),
 		contentType:'application/json',
 		success:function(response){
-			alert(JSON.stringify(response));
+			alert("Registration Successfull");
+			window.location.href = "login.html";
 		}
 	})
 	})	
@@ -57,8 +58,10 @@ $(function(){
       <label for="address"><b>Address</b></label>
       <input type="text" placeholder="Enter address" id="address"  required>
   
-      <input type="submit" class="btn">Register</button>
-   
+      <input type="submit" class="btn" value="Register">
+      <div>
+        <a href="login.html">Already have an account? Login here</a><br>
+        </div>
     </form>
   </div>
 
