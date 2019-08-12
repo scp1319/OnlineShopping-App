@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		$("#prodDisplay").click(function(evt) {
+			evt.preventDefault();
+			var productid = $("#productid").val();
+			$.ajax({
+				url : 'dispProduct.lti?productid=' + productid,
+				method : 'GET',
+				contentType : 'application/json',
+				success : function(response) {
+					alert(JSON.stringify(response));
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	<input type="number" name="prodid" id="productid">
+	<input type="submit" value="submit" id="prodDisplay">
+</body>
+</html>
+
+

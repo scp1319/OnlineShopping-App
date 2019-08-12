@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.lti.entity.User;
 
 @Repository
-public class UserDao extends GenericDao {
+public class UserDao {
 	
 	@PersistenceContext
 	protected EntityManager entityManager;

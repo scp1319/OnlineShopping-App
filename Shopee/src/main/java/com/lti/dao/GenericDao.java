@@ -16,8 +16,8 @@ public class GenericDao {
 		return entityManager.merge(obj);
 	}
 
-	public <E> E fetchById(Class<E> clazz, Object pk) {
-		return entityManager.find(clazz, pk);
+	public <E> E fetchById(Class<E> clazz, int id) {
+		return entityManager.find(clazz, id);
 	}
 
 	public <E> List<E> fetchAll(Class<E> clazz) {
