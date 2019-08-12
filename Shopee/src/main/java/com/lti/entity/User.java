@@ -15,12 +15,15 @@ public class User {
 	@GeneratedValue
 	private int id;
 
-	private String email;
-	private String password;
 	private String name;
-	private String address;
+
+	private String password;
+	private String email;
+	
 	@Column(name="mob_no")
 	private long mobNo;	
+	
+	private String address;
 	
 
 
