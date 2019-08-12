@@ -28,7 +28,6 @@ public class UserDao extends GenericDao {
 		}
 		catch(Exception e) {
 			return "false";
-			
 		}
 	}
 
