@@ -9,7 +9,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(function(){
-	$("#userRegistrationForm").submit(function(evt){
+	$("#registerButton").click(function(evt){
 		evt.preventDefault();
 		var obj = 
 			{
@@ -58,7 +58,7 @@ $(function(){
       <label for="address"><b>Address</b></label>
       <input type="text" placeholder="Enter address" id="address"  required>
   
-      <input type="submit" class="btn" value="Register">
+    <button type= "submit"  id="registerButton" class="btn" >Register</button>
       <div>
         <a href="login.html">Already have an account? Login here</a><br>
         </div>
