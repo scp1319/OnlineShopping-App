@@ -2,10 +2,8 @@ package com.lti.entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -27,6 +25,15 @@ public class Cart {
 	@JoinColumn(name="user_id")
 	private User user;
 
+	@OneToMany(mappedBy = "cart")
+	private Set<Item> items;
+	
+	public Set<Item> getItems() {
+		return items;
+	}
+	public void setItems(Set<Item> items) {
+		this.items = items;
+	}
 	public int getCartId() {
 		return cartId;
 	}

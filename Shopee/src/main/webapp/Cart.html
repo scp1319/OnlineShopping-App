@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#addToCart").click(function(evt){
+		evt.preventDefault();
+		var obj = 
+			{
+				cartId: $("#cartid").val(),
+				productId: $("#productid").val(),
+				quantity: $("#quantity").val(),
+			}
+	$.ajax({
+		url: 'addToCart.lti',
+		method:'POST',
+		data: JSON.stringify(obj),
+		contentType:'application/json',
+		success:function(response){
+			alert("Product added to Cart");
+			location.reload();
+		}
+	})
+	})	
+})
+</script>
+</head>
+<body>
+<input type="number" name="cartid" id="cartid" placeholder="cartid">
+<input type="number" placeholder="productid" id="productid">
+<input type="number" placeholder="quantity" id="quantity">
+<input type="submit" value="submit" id="addToCart">
+</body>
+</html>

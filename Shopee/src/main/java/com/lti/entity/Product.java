@@ -23,9 +23,15 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="catg_id")
 	private Category category;
+	
+	/*
 	@Column(name="img_src")
-	private String imageSrc;
+	private String imageSrc;*/
+	
 	private String description;
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Category getCategory() {
 		return category;
@@ -64,12 +70,7 @@ public class Product {
 		this.brand = brand;
 	}
 
-	public String getImageSrc() {
-		return imageSrc;
-	}
-	public void setImageSrc(String imageSrc) {
-		this.imageSrc = imageSrc;
-	}
+	
 	public String getDescription() {
 		return description;
 	}
