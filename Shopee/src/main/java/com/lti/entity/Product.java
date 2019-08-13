@@ -20,19 +20,19 @@ public class Product {
 	private String brand;
 	private double price;
 	private int stock;
-//	@ManyToOne
-//	@JoinColumn(name="catg_id")
-//	private Category category;
+	@ManyToOne
+	@JoinColumn(name="catg_id")
+	private Category category;
 	@Column(name="img_src")
 	private String imageSrc;
 	private String description;
 	
-//	public Category getCategory() {
-//		return category;
-//	}
-//	public void setCategory(Category category) {
-//		this.category = category;
-//	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	public int getId() {
 		return id;
 	}
