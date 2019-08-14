@@ -14,16 +14,16 @@ public class UserDao {
 	@PersistenceContext
 	protected EntityManager entityManager;
 
-	public String loginValidation(String email, String password) {
+	public User loginValidation(String email, String password) {
 		String query = "select u from User u where u.email =:em and u.password=:pwd";
 		Query q = entityManager.createQuery(query);
 		q.setParameter("em", email);
 		q.setParameter("pwd", password);
 		try {
-			User c = (User) q.getSingleResult();
-			return "true";
+			User user = (User) q.getSingleResult();
+			return user;
 		} catch (Exception e) {
-			return "false";
+			return null;
 		}
 	}
 

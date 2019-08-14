@@ -20,7 +20,7 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/UserLogin.lti")
-	public String loginValidation(@RequestBody Credential credentials) {
+	public User loginValidation(@RequestBody Credential credentials) {
 		return userService.userLogin(credentials.getEmail(), credentials.getPassword());
 	}
 	

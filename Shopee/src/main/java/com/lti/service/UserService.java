@@ -20,7 +20,7 @@ public class UserService {
 	private GenericDao dao;
 	
 	@Transactional
-	public String userLogin(String email, String password) {
+	public User userLogin(String email, String password) {
 		return userDao.loginValidation(email, password);
 	}
 	

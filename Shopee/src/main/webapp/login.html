@@ -21,11 +21,11 @@ $(function() {
 				contentType : 'application/json',
 				data : JSON.stringify(obj),
 				success: function(response) {
-					if (response == "true") {
-						
+					if (response != null) {
 						//session code start
 						if (typeof(Storage) !== "undefined") {
-						  sessionStorage.setItem("userEmail", sessionEmail );
+						  sessionStorage.setItem("userEmail", response.email );
+						  sessionStorage.setItem("userId", response.userId );
 						} else {
 						 alert("Sorry, your browser does not support Web Storage...");
 						}
