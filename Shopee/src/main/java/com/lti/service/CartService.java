@@ -14,10 +14,8 @@ import com.lti.entity.Product;
 
 @Service
 public class CartService {
-
 	@Autowired
 	private GenericDao dao;
-
 	@Autowired
 	private CartDao cartDao;
 
