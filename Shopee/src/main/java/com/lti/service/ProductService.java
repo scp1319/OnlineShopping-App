@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.GenericDao;
+import com.lti.dao.ProductDao;
 import com.lti.entity.Product;
 
 @Service
@@ -14,8 +15,28 @@ import com.lti.entity.Product;
 
 		@Autowired
 		private GenericDao dao;
+		
+		@Autowired
+		private ProductDao productDao;
+		
 		@Transactional
-		public Product displayProduct(int product_id){
-			return dao.fetchById(Product.class, product_id);
+		public List<Product> displayAllProduct(){
+			return dao.fetchAll(Product.class);
 		}
+		
+		@Transactional
+		public List<Product> displayProductByBrand(String brand){
+			return productDao.fetchByBrandName(brand);
+		}
+		
+		@Transactional
+		public List<Product> displayProductByPriceLowToHigh(){
+			return productDao.fetchByPriceLowToHigh();
+		}
+		
+		@Transactional
+		public List<Product> displayProductByPriceHighToLow(){
+			return productDao.fetchByPriceHighToLow();
+		}
+		
 }
