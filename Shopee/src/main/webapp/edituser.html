@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styleregister.css">
+    <title>Edit User</title>
+</head>
+<body>    
+   
+  <div class="header">Edit your Info</div>
+  <div   id="myForm">
+    
+        <form class="form-container" id="top">
+       
+          
+          <label for="Name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" id="name" required>
+          
+          <label for="email"><b>Email</b></label>
+          <input type="email" placeholder="Enter Email" id="email" required>
+          
+          <label for="number"><b>Mobile Number</b></label>
+          <input name="number" 
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type = "number" maxlength = "10"  placeholder="Enter number"  id="mobNo"  length=10 required>
+      
+          <label for="address"><b>Address</b></label>
+          <input type="text" placeholder="Enter address" id="address"  required>
+      
+          <button formaction="#" type="submit" class="btn" >Done</button>   
+    
+        </form>
+       
+    </div>  
+ </body>
+ </html>

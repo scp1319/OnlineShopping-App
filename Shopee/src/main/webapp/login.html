@@ -10,6 +10,7 @@
 $(function() {
 	$("#loginButton").click(function(evt){
 		evt.preventDefault();
+		var sessionEmail = $("#email").val();
 		var obj = {
 				email: $("#email").val(),
 				password: $("#password").val()
@@ -21,6 +22,15 @@ $(function() {
 				data : JSON.stringify(obj),
 				success: function(response) {
 					if (response == "true") {
+						
+						//session code start
+						if (typeof(Storage) !== "undefined") {
+						  sessionStorage.setItem("userEmail", sessionEmail );
+						} else {
+						 alert("Sorry, your browser does not support Web Storage...");
+						}
+						//end
+						
 						window.location.href = "home.html";
 					} 
 					else {
@@ -34,17 +44,18 @@ $(function() {
 </script>
 
 <body>
-    <div id="myform">
-	<form class="form-container">
-            <h2>Login</h2>
-		Username:<input type = "text" placeholder="Enter email" id="email">
-		Password:<input type = "password" placeholder="Enter password" id="password">
-		<div id="error"></div>
-		<button type= "submit" class="btn" id="loginButton">login</button>
-        <div>
-        <a href="register.html">New User? Register here</a><br>
-        <a href="forgotPassword.html">Forgot Password?</a>
-        </div>
-    </form>
+	<div id="myform">
+		<form class="form-container">
+			<h2>Login</h2>
+			Username:<input type="text" placeholder="Enter email" id="email">
+			Password:<input type="password" placeholder="Enter password"
+				id="password">
+			<div id="error"></div>
+			<button type="submit" class="btn" id="loginButton">login</button>
+			<div>
+				<a href="register.html">New User? Register here</a><br> <a
+					href="forgotPassword.html">Forgot Password?</a>
+			</div>
+		</form>
 </body>
 </html>

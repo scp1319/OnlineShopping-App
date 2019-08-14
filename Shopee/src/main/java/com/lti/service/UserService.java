@@ -35,4 +35,9 @@ public class UserService {
 		dao.save(c);
 		return updatedUser.getId();
 	}	
+	
+	@Transactional
+	public User userDetails( ) {
+		return null;
+	}
 }

@@ -1,0 +1,77 @@
+body {font-family: Arial, Helvetica, sans-serif;
+position:center;}
+
+form {border: 3px solid #f1f1f1;}
+
+
+
+#myForm{
+  margin-left:40%;
+  }
+
+  .form-container {
+
+    max-width: 300px;
+    padding: 10px;
+    
+  }
+  
+  .header{
+    float: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #111;
+    cursor: pointer;
+  }
+  .form-container input[type=text], .form-container input[type=password], .form-container input[type=number],.form-container input[type=email] {
+    width: 100%;
+    height: 35px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  .form-container .btn {
+    background-color: #3c7de6;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 5;
+  }
+  
+  
+  .reg{
+    
+    text-align: center;
+  }
+
+  a:visited {
+    color: blue;
+  }
+
+  a:hover {
+    color: blue;
+  }
+
+  #top{
+    margin-top: 10%;
+    
+  }
+
+

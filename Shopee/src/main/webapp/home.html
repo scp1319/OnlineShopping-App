@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<title>home</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	
+	$(function(){
+		$("#logout").hide();	  
+		var userEmail = sessionStorage.getItem("userEmail");
+		if(userEmail != null){
+			$("#userEmail").append(userEmail);	
+			$("#logout").show();
+			$("#login").hide();
+		}	 
+		
+	});
+	
+	
+	
+</script>
 </head>
 <body>
-
+	<div class="header">Shoppe</div>
+	<ul>
+		<li><a id="cart-align" href="products.html">Products</a></li>
+		<li><a id="cart-align" href="#">Compare</a></li>
+		<li><a href="cart.html">Cart</a></li>
+		<li><a href="userprofile.html">User Profile</a></li>
+		<li id="login"><a href="login.html">Login</a></li>
+		<li id="logout" ><a href="logout.html">Logout</a></li>
+	</ul>
+	
+	<h1 id="userEmail"></h1>
 </body>
 </html>

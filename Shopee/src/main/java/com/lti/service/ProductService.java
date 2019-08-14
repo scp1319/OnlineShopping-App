@@ -17,6 +17,5 @@ import com.lti.entity.Product;
 		@Transactional
 		public Product displayProduct(int product_id){
 			return dao.fetchById(Product.class, product_id);
-			
 		}
 }
