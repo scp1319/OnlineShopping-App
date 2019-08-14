@@ -36,9 +36,9 @@ public class CartService {
 		p.setStock(p.getStock() - quantity);
 		dao.save(p);
 	}
-/*
-	public List displayCartService(int cartid) {
-		return (List) cartDao.displayCart(cartid);
-	}*/
+
+	public Cart displayCartService(int cartid) {
+		return cartDao.displayCart(cartid);
+	}
 
 }

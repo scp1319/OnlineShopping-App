@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.Credential;
+import com.lti.dto.EditUserInfo;
 import com.lti.dto.Status;
 import com.lti.entity.Product;
 import com.lti.entity.User;
@@ -32,7 +33,11 @@ public class UserController {
 		status.setGeneratedId(userId);
 		return status;
 	}
-	
+	@PostMapping("/editUserDetails.lti")
+	public void editUser(@RequestBody EditUserInfo  info)
+	{
+		userService.editUserDetails(info.getUserId(),info.getName(),info.getEmail(),info.getMobileno(),info.getAddress());
+	}
 	
 
 }

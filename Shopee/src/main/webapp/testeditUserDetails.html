@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(function() {
+	$("#editUserButton").click(function(evt){
+		evt.preventDefault();
+		var obj = {
+				userId: $("#userId").val(),
+				name: $("#name").val(),
+				email: $("#email").val(),
+				mobileno:$("#mobileno").val(),
+				address:$("#address").val()
+		}
+		$.ajax({
+				url : 'editUserDetails.lti',
+				method : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(obj),
+				success: function(response) {
+					alert("User edited");
+				}
+		})
+	})
+})
+
+</script>
+</head>
+<body>
+	<input type="number" placeholder="userId" id="userId">
+	<input type="text" placeholder="name" id="name">
+	<input type="email" placeholder="email" id="email">
+	<input type="number" placeholder="mobileno" id="mobileno">
+	<input type="text" placeholder="address" id="address">
+	<input type="submit" value="submit" id="editUserButton">
+</body>
+</html>

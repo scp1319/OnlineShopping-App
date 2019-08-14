@@ -20,6 +20,7 @@ public class Product {
 	private String brand;
 	private double price;
 	private int stock;
+	
 	@ManyToOne
 	@JoinColumn(name="catg_id")
 	private Category category;

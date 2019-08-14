@@ -24,10 +24,10 @@ public class CartController {
 	public void addProductToCart(@RequestBody CartValue cartValues) {
 		cartService.addToCart(cartValues.getCartId(), cartValues.getProductId(), cartValues.getQuantity());
 	}
-/*
+
 	@GetMapping("/dispCart.lti")
-	public List displayProductsInCart(@RequestParam("cartid") int cartid) {
+	public Cart displayProductsInCart(@RequestParam("cartId") int cartid) {
 		return cartService.displayCartService(cartid);
 	}
-*/
+
 }
