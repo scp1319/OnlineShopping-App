@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Products</title>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+
+	$(function() {
+	
+		$('#priceFieldset input[type=radio]').change(function(){
+		     var filterOption = $(this).val() ; 
+		     if(filterOption == "lowToHigh"){
+		    	 	$("#productDisplayList").empty();
+		    		 $.ajax({
+		    				url : 'displayAllProductByPriceLowToHigh.lti',
+		    				method : 'POST',
+		    				contentType : 'application/json',
+
+		    				success : function(response) {
+		    					response.forEach(function(product) {
+		    						$("#productDisplayList").append(	
+		    								"<div id='border'>"
+		    								+"<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
+		    								+"<div id='align'><h4>"+ product.name + "</h4>" 
+		    								+"<p>"+ product.description+"</p>"
+		    								+"<div>Price <span class='currencyINR' id='price'>Rs."	+ product.price + "</span><div>"
+		    								+"<button class='buy'>Add to cart</button>"
+		    								+"<button class='buy'>Add to Wishlist</button>"
+		    								+"</div></div></div></div></div>"
+		    						);
+		    					})
+		    				}
+		    			})
+		     }
+		     else{
+		    	 $("#productDisplayList").empty();
+	    		 $.ajax({
+	    				url : 'displayAllProductByPriceHighToLow.lti',
+	    				method : 'POST',
+	    				contentType : 'application/json',
+
+	    				success : function(response) {
+	    					response.forEach(function(product) {
+	    						$("#productDisplayList").append(	
+	    								"<div id='border'>"
+	    								+"<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
+	    								+"<div id='align'><h4>"+ product.name + "</h4>" 
+	    								+"<p>"+ product.description+"</p>"
+	    								+"<div>Price <span class='currencyINR' id='price'>Rs."	+ product.price + "</span><div>"
+	    								+"<button class='buy'>Add to cart</button>"
+	    								+"<button class='buy'>Add to Wishlist</button>"
+	    								+"</div></div></div></div></div>"
+	    						);
+	    					})
+	    				}
+	    			})
+		     }
+		 })
+		      
+		
+		$.ajax({
+			url : 'displayAllProduct.lti',
+			method : 'POST',
+			contentType : 'application/json',
+
+			success : function(response) {
+				response.forEach(function(product) {
+					$("#productDisplayList").append(	
+							"<div id='border'>"
+							+"<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
+							+"<div id='align'><h4>"+ product.name + "</h4>" 
+							+"<p>"+ product.description+"</p>"
+							+"<div>Price <span class='currencyINR' id='price'>Rs."	+ product.price + "</span><div>"
+							+"<button class='buy'>Add to cart</button>"
+							+"<button class='buy'>Add to Wishlist</button>"
+							+"</div></div></div></div></div>"
+					);
+				})
+			}
+		})
+	})
+		
+</script>
+
+
+</head>
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<body>
+	<div class="header">Products</div>
+	<div>
+		<div class="outline">
+			Filter by:<br> Brand name:<br>
+			<div id="filter">
+				<input type="checkbox" name="vehicle1" value="Brand 1">Brand
+				1<br> <input type="checkbox" name="vehicle2" value="brand 2">Brand
+				2<br> <input type="checkbox" name="vehicle3" value="Brand 3">Brand
+				3<br> <input type="submit" value="Submit">
+			</div>
+			
+			Sort by:<br>
+			<div id="filter">
+				<fieldset id="priceFieldset" style="border:none;">
+   					<label><input name="priceFieldset" type="radio" value="lowToHigh" />Low to High</label>
+   					<label><input name="priceFieldset" type="radio" value="HighToLow" />High to Low</label>
+				</fieldset>
+			</div>
+		</div>
+		
+		<div id="productDisplayList">
+		
+		</div>
+
+	</div>
+</div>
+</body>
+</html>
