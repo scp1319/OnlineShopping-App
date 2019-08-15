@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		$("#mailtester").click(function(evt) {
+			evt.preventDefault();
+			$.ajax({
+				url : 'sendMail.lti',
+				method : 'GET',
+				contentType : 'application/json',
+				success : function(response) {
+					alert("mail sent");
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+<input type="submit" value="submit" id="mailtester">
+</body>
+</html>

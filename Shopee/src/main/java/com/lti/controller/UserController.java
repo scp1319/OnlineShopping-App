@@ -13,12 +13,16 @@ import com.lti.dto.Status;
 import com.lti.entity.Product;
 import com.lti.entity.User;
 import com.lti.service.ProductService;
+import com.lti.service.SendMailService;
 import com.lti.service.UserService;
 
 @RestController
 public class UserController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private SendMailService sendMailService;
 	
 	@PostMapping("/UserLogin.lti")
 	public User loginValidation(@RequestBody Credential credentials) {
@@ -34,10 +38,13 @@ public class UserController {
 		return status;
 	}
 	@PostMapping("/editUserDetails.lti")
-	public void editUser(@RequestBody EditUserInfo  info)
-	{
+	public void editUser(@RequestBody EditUserInfo  info){
 		userService.editUserDetails(info.getUserId(),info.getName(),info.getEmail(),info.getMobileno(),info.getAddress());
 	}
 	
+	@GetMapping("/sendMail.lti")
+	public void sendMail() {
+		sendMailService.send();
+	}
 
 }

@@ -1,7 +1,5 @@
 package com.lti.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +32,15 @@ public class CartService {
 
 	public Cart displayCartService(int cartid) {
 		return cartDao.displayCart(cartid);
+	}
+	@Transactional
+	public void removeItemFromCart(int itemId)
+	{
+		Item item =dao.fetchById(Item.class, itemId);
+		Cart c=dao.fetchById(Cart.class, item.getCart().getCartId());
+		c.setTotal(c.getTotal()-item.getProduct().getPrice()*item.getQuantity());
+		dao.save(c);
+		dao.delete(item);
 	}
 
 }

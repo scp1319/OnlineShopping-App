@@ -1,8 +1,7 @@
 package com.lti.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.CartValue;
 import com.lti.entity.Cart;
-import com.lti.entity.Product;
 import com.lti.service.CartService;
 
 @RestController
@@ -29,5 +27,10 @@ public class CartController {
 	public Cart displayProductsInCart(@RequestParam("cartId") int cartid) {
 		return cartService.displayCartService(cartid);
 	}
+	@DeleteMapping("/deleteFromCart.lti")
+	public void deleteFromCart(@RequestParam("itemId") int itemId) {
+		cartService.removeItemFromCart(itemId);
+	}
+	
 
 }
