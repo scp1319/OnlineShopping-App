@@ -20,6 +20,7 @@
 
 		    				success : function(response) {
 		    					response.forEach(function(product) {
+		    						var productId = product.id;
 		    						$("#productDisplayList").append(	
 		    								"<div id='border'>"
 		    								+"<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
@@ -28,6 +29,7 @@
 		    								+"<div>Price <span class='currencyINR' id='price'>Rs."	+ product.price + "</span><div>"
 		    								+"<button class='buy'>Add to cart</button>"
 		    								+"<button class='buy'>Add to Wishlist</button>"
+		    								+"<a href='productDescription.html'>Know more>></a>"
 		    								+"</div></div></div></div></div>"
 		    						);
 		    					})
@@ -51,6 +53,7 @@
 	    								+"<div>Price <span class='currencyINR' id='price'>Rs."	+ product.price + "</span><div>"
 	    								+"<button class='buy'>Add to cart</button>"
 	    								+"<button class='buy'>Add to Wishlist</button>"
+	    								+"<a href='productDescription.html'>Know more>></a>"
 	    								+"</div></div></div></div></div>"
 	    						);
 	    					})
@@ -75,6 +78,7 @@
 							+"<div>Price <span class='currencyINR' id='price'>Rs."	+ product.price + "</span><div>"
 							+"<button class='buy'>Add to cart</button>"
 							+"<button class='buy'>Add to Wishlist</button>"
+							+"<a href='productDescription.html'>Know more>></a>"
 							+"</div></div></div></div></div>"
 					);
 				})
@@ -99,9 +103,9 @@
 				3<br> <input type="submit" value="Submit">
 			</div>
 			
-			Sort by:<br>
+			<label style="font-weight:bold;">Sort by:</label><br>
 			<div id="filter">
-				<fieldset id="priceFieldset" style="border:none;">
+				<fieldset id="priceFieldset" style="border:none;" >
    					<label><input name="priceFieldset" type="radio" value="lowToHigh" />Low to High</label>
    					<label><input name="priceFieldset" type="radio" value="HighToLow" />High to Low</label>
 				</fieldset>
