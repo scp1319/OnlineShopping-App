@@ -31,6 +31,4 @@ public class CartController {
 	public void deleteFromCart(@RequestParam("itemId") int itemId) {
 		cartService.removeItemFromCart(itemId);
 	}
-	
-
 }

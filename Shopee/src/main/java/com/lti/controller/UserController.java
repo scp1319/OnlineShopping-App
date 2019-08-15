@@ -42,6 +42,7 @@ public class UserController {
 		userService.editUserDetails(info.getUserId(),info.getName(),info.getEmail(),info.getMobileno(),info.getAddress());
 	}
 	
+	//mail
 	@GetMapping("/sendMail.lti")
 	public void sendMail() {
 		sendMailService.send();

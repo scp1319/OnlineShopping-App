@@ -19,5 +19,6 @@ public class SendMailService {
 		message.setSubject("Test Mail");
 		message.setText("Hi!");
 		mailSender.send(message);
+	//
 	}
 }

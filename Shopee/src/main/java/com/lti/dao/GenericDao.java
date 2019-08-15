@@ -24,6 +24,7 @@ public class GenericDao {
 		String q = "select obj from " + clazz.getName() + " as obj";
 		return entityManager.createQuery(q).getResultList();
 	}
+	
 	public void delete(Object obj) {
 		entityManager.remove(obj);
 	}
