@@ -14,10 +14,8 @@ import com.lti.entity.Product;
 
 @Service
 public class CartService {
-
 	@Autowired
 	private GenericDao dao;
-
 	@Autowired
 	private CartDao cartDao;
 
@@ -30,11 +28,8 @@ public class CartService {
 		i.setProduct(p);
 		i.setQuantity(quantity);
 		dao.save(i);
-		
 		c.setTotal(c.getTotal() + p.getPrice() * i.getQuantity());
 		dao.save(c);
-		p.setStock(p.getStock() - quantity);
-		dao.save(p);
 	}
 
 	public Cart displayCartService(int cartid) {
