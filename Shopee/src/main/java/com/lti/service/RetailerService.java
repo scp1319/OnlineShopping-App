@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.GenericDao;
+import com.lti.dao.RetailerDao;
 import com.lti.entity.Category;
 import com.lti.entity.Product;
 import com.lti.entity.Retailer;
@@ -13,6 +14,9 @@ public class RetailerService {
 
 	@Autowired
 	private GenericDao dao;
+	
+	@Autowired
+	private RetailerDao retailerDao;
 
 	@Transactional
 	public void addProducts(String name, String brand, String description, double price, int stock, int retailerId, int categoryId) {
@@ -28,5 +32,8 @@ public class RetailerService {
 		product.setCategory(category);
 		dao.save(product);
 	}
-		
+	@Transactional
+	public Retailer retailerLogin(String email, String password) {
+		return retailerDao.loginValidation(email, password);
+	}
 }

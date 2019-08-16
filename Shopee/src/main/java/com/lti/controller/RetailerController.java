@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.Credential;
 import com.lti.dto.ProductInfo;
 import com.lti.entity.Category;
+import com.lti.entity.Retailer;
 import com.lti.service.CategoryService;
 import com.lti.service.RetailerService;
 @RestController
@@ -32,4 +34,11 @@ public class RetailerController {
 		System.out.println(info.getRetailerId());
 	retailerService.addProducts(info.getName(), info.getBrand(), info.getDescription(), info.getPrice(), info.getStock(), info.getRetailerId(), info.getCategoryId());	
 	}
+
+	@PostMapping("/RetailerLogin.lti")
+	public Retailer loginValidation(@RequestBody Credential credentials) {
+		return retailerService.retailerLogin(credentials.getEmail(), credentials.getPassword());
+	}
+	
 }
+
