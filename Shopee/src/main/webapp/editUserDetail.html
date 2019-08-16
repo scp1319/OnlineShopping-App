@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-<title>home</title>
+<title>User Details</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
 	$(function() {
@@ -36,15 +34,28 @@
 				<input id="search" type="text"
 					placeholder="What are you lookign for?.." name="search">
 				<button type="submit">Search</button>
-				<a id="login" class="cart-align" href="login.html">Login</a>	
-				<a id="register" class="cart-align" href="register.html">Register</a>
-				<a id="logout" class="cart-align" href="logout.html">Logout</a>
-				<a id="userEmail" class="cart-align" href="#" style="color:white"></a>
+				<a id="login" class="cart-align" href="login.html">Login</a> <a
+					id="register" class="cart-align" href="register.html">Register</a>
+				<a id="logout" class="cart-align" href="logout.html">Logout</a> <a
+					id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>
 	</div>
+	<div class="header">Edit User Details</div>
+	<div id="myform">
+		<form class="form-container" id="detail">
+
+			Name:<input type="text" placeholder="Enter name" id="name">
+
+			Mobile Number:<input type="text" placeholder="Enter Mobile Number"
+				id="mobno"> Address:<input type="text"
+				placeholder="Enter Address" id="address"> Email:<input
+				type="text" placeholder="Enter Email" id="email">
 
 
-	<h1></h1>
+			<button type="submit" class="btn">Edit Details</button>
+
+		</form>
+	</div>
 </body>
 </html>
