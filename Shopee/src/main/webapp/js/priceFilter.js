@@ -95,9 +95,7 @@ $(function() {
 																		this)
 																		.attr(
 																				"selectedProductId");
-																// alert("selectedProductId
-																// is
-																// "+selectedProductId);
+																
 																sessionStorage
 																		.setItem(
 																				"selectedProductId",

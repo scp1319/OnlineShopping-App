@@ -21,27 +21,26 @@ public class ProductController {
 	public List<Product> displayAllProduct() {
 		return productService.displayAllProduct();
 	}
-	
+
 	@PostMapping("/displayAllProductByBrand.lti")
 	public List<Product> displayAllProductByBrand(String brand) {
 		return productService.displayProductByBrand(brand);
 	}
-	
+
 	@PostMapping("/displayAllProductByPriceLowToHigh.lti")
 	public List<Product> displayAllProductByPriceLowToHigh() {
 		return productService.displayProductByPriceLowToHigh();
 	}
-	
+
 	@PostMapping("/displayAllProductByPriceHighToLow.lti")
 	public List<Product> displayAllProductByPriceHighToLow() {
 		return productService.displayProductByPriceHighToLow();
 	}
-	
 
 	@GetMapping("/displayProductById.lti")
-	public Product displayProduct(@RequestParam("productId") int productId ){
-	  Product product=productService.displayProductById(productId);
+	public Product displayProduct(@RequestParam("productId") int productId) {
+		Product product = productService.displayProductById(productId);
 		return product;
 	}
-	
+
 }
