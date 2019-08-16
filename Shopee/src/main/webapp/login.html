@@ -7,40 +7,46 @@
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
-$(function() {
-	$("#loginButton").click(function(evt){
-		evt.preventDefault();
-		var sessionEmail = $("#email").val();
-		var obj = {
-				email: $("#email").val(),
-				password: $("#password").val()
-		}
-		$.ajax({
-				url : 'UserLogin.lti',
-				method : 'POST',
-				contentType : 'application/json',
-				data : JSON.stringify(obj),
-				success: function(response) {
-					if (response != null) {
-						//session code start
-						if (typeof(Storage) !== "undefined") {
-						  sessionStorage.setItem("userEmail", response.email );
-						  sessionStorage.setItem("userId", response.userId );
-						} else {
-						 alert("Sorry, your browser does not support Web Storage...");
-						}
-						//end
-						
-						window.location.href = "home.html";
-					} 
-					else {
-						$("#error").html("Invalid credentials");
-					}
-				}
-		})
-	})
-})
+	$(function() {
+		$("#loginButton")
+				.click(
+						function(evt) {
+							evt.preventDefault();
+							var sessionEmail = $("#email").val();
+							var obj = {
+								email : $("#email").val(),
+								password : $("#password").val()
+							}
+							$
+									.ajax({
+										url : 'UserLogin.lti',
+										method : 'POST',
+										contentType : 'application/json',
+										data : JSON.stringify(obj),
+										success : function(response) {
+											if (response != null) {
+												//session code start
+												if (typeof (Storage) !== "undefined") {
+													sessionStorage.setItem(
+															"userEmail",
+															response.email);
+													sessionStorage.setItem(
+															"userId",
+															response.userId);
+												} else {
+													alert("Sorry, your browser does not support Web Storage...");
+												}
+												//end
 
+												window.location.href = "home.html";
+											} else {
+												$("#error").html(
+														"Invalid credentials");
+											}
+										}
+									})
+						})
+	})
 </script>
 
 <body>

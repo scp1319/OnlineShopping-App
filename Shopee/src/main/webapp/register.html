@@ -8,62 +8,56 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-$(function(){
-	$("#registerButton").click(function(evt){
-		evt.preventDefault();
-		var obj = 
-			{
-				name: $("#name").val(),
-				password: $("#password").val(),
-				email: $("#email").val(),
-				mobNo: $("#mobNo").val(),
-				address: $("#address").val(),
+	$(function() {
+		$("#registerButton").click(function(evt) {
+			evt.preventDefault();
+			var obj = {
+				name : $("#name").val(),
+				password : $("#password").val(),
+				email : $("#email").val(),
+				mobNo : $("#mobNo").val(),
+				address : $("#address").val(),
 			}
-	$.ajax({
-		url: 'RegisterUser.lti',
-		method:'POST',
-		
-		data: JSON.stringify(obj),
-		contentType:'application/json',
-		success:function(response){
-			alert("Registration Successfull");
-			window.location.href = "login.html";
-		}
+			$.ajax({
+				url : 'RegisterUser.lti',
+				method : 'POST',
+
+				data : JSON.stringify(obj),
+				contentType : 'application/json',
+				success : function(response) {
+					alert("Registration Successfull");
+					window.location.href = "login.html";
+				}
+			})
+		})
 	})
-	})	
-})
 </script>
 </head>
 <body>
 
-<div   id="myForm">
-    
-    <form class="form-container" id = "userRegistrationForm">
-   
-      <h2>Register Here!</h2>
-      <label for="Name"><b>Name</b></label>
-      <input type="text" placeholder="Enter Name" name="name" id="name" required>
-    
-      <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" id="password" required>
-      
-      <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Enter Email" id="email" required>
-      
-      <label for="number"><b>Mobile Number</b></label>
-      <input name="number" 
-      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-      type = "number" maxlength = "10"  placeholder="Enter number"  id="mobNo"  length=10 required>
-  
-      <label for="address"><b>Address</b></label>
-      <input type="text" placeholder="Enter address" id="address"  required>
-  
-    <button type= "submit"  id="registerButton" class="btn" >Register</button>
-      <div>
-        <a href="login.html">Already have an account? Login here</a><br>
-        </div>
-    </form>
-  </div>
+	<div id="myForm">
+
+		<form class="form-container" id="userRegistrationForm">
+
+			<h2>Register Here!</h2>
+			<label for="Name"><b>Name</b></label> <input type="text"
+				placeholder="Enter Name" name="name" id="name" required> <label
+				for="password"><b>Password</b></label> <input type="password"
+				placeholder="Enter Password" id="password" required> <label
+				for="email"><b>Email</b></label> <input type="email"
+				placeholder="Enter Email" id="email" required> <label
+				for="number"><b>Mobile Number</b></label> <input name="number"
+				oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+				type="number" maxlength="10" placeholder="Enter number" id="mobNo"
+				length=10 required> <label for="address"><b>Address</b></label>
+			<input type="text" placeholder="Enter address" id="address" required>
+
+			<button type="submit" id="registerButton" class="btn">Register</button>
+			<div>
+				<a href="login.html">Already have an account? Login here</a><br>
+			</div>
+		</form>
+	</div>
 
 </body>
 </html>
