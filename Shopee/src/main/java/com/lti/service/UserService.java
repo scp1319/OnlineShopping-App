@@ -36,8 +36,8 @@ public class UserService {
 	}
 
 	@Transactional
-	public User userDetails() {
-		return null;
+	public User userDetails(int userId) {
+		return dao.fetchById(User.class, userId);
 	}
 
 	@Transactional
@@ -47,6 +47,12 @@ public class UserService {
 		u.setEmail(email);
 		u.setMobNo(mobno);
 		u.setAddress(address);
+		dao.save(u);
+	}
+	@Transactional
+	public void changePassword(String password,String newpassword) {
+		User u=userDao.fetchByPassword(password);
+		u.setPassword(newpassword);
 		dao.save(u);
 	}
 }

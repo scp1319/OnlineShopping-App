@@ -26,5 +26,13 @@ public class UserDao {
 			return null;
 		}
 	}
+	public User fetchByPassword(String password)
+	{
+		String query = "select u from User u where u.password=:pwd";
+		Query q = entityManager.createQuery(query);
+		q.setParameter("pwd", password);
+		User user=(User) q.getSingleResult();
+		return user;
+	}
 
 }
