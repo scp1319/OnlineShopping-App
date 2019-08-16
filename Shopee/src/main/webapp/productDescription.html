@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-<title>home</title>
+<title>Product Description</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
 	$(function() {
@@ -17,7 +15,6 @@
 			$("#login").hide();
 			$("#register").hide();
 		}
-
 	});
 </script>
 </head>
@@ -43,8 +40,23 @@
 			</div>
 		</ul>
 	</div>
+	<div class="header">Product Description</div>
 
-
-	<h1></h1>
+	<div>
+		<div class="column">
+			<img id="img-prod-desc" src="img/mobile.jpg" alt="Snow">
+		</div>
+		<div>
+			<h4>Product Name</h4>
+			<div class="desc-align">Product Description:</div>
+			<div>
+				Price <span class="currencyINR" id="price">Rs.499</span>
+				<div>
+					<button class="buy">Add to cart</button>
+					<button class="buy">Proceed to Buy</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

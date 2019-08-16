@@ -1,52 +1,79 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-    <title>Orders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<title>Orders</title>
 </head>
-<body> 
-        <div class="header" >Order Details</div>
-        <div>
-        <form class="form-order" id="border" >
-            <div id="img-desc">
-                <img  src="img/mobile.jpg"></img> 
-                <div id="align">
-                        <p><h4>Product Name</h4></p>
-                        <p>Description:
-                            This product is...
-                        </p>
-                        <p><h5>Price Rs.499</h5></p>
-                </div>  
-            </div>
-        </div>
-        <div id="border">
-            <div id="img-desc">  
-                    <img  src="img/mobile.jpg"></img> 
-                    <div id="align">
-                            <p><h4>Product Name</h4></p>
-                            <p>Description:
-                                This product is...
-                            </p>
-                            <p><h5>Price Rs.499</h5></p>
-                    </div>  
-                </div>
-        </div>
-        <div id="border">
-                <div id="img-desc">
-                        <img  src="img/mobile.jpg"></img> 
-                        <div  id="align">
-                                <p><h4>Product Name</h4></p>
-                                <p>Description:
-                                    This product is...
-                                </p>
-                                <p><h5>Price Rs.499</h5></p>
-                        </div>  
-                    </div>
-        </div>   
-        <div class="form-container" id="myform">
-                <button formaction="home.html" type="submit" class="btn" >home</button>  
-        </div>     
-        </form>     
+<body>
+
+	<div>
+
+		<ul>
+			<li><div class="logo">
+					<img class="logo-size" src="logo.jpg">Shoppe
+				</div></li>
+			<li><a class="cart-align" href="products.html">Products</a></li>
+			<li><a class="cart-align" href="#">Compare</a></li>
+			<li><a class="cart-align" href="cart.html">Cart</a></li>
+			<li><a class="cart-align" href="userprofile.html">User
+					Profile</a></li>
+			<div>
+				<input id="search" type="text"
+					placeholder="What are you lookign for?.." name="search">
+				<button type="submit">Search</button>
+				<a class="cart-align" href="login.html">Login</a> <a
+					class="cart-align" href="register.html">Register here!</a>
+			</div>
+		</ul>
+	</div>
+	<div class="header">Order Details</div>
+	<div>
+		<form class="form-order" id="border">
+			<div id="img-desc">
+				<img src="img/mobile.jpg"></img>
+				<div id="align">
+					<p>
+					<h4>Product Name</h4>
+					</p>
+					<p>Description: This product is...</p>
+					<p>
+					<h5>Price Rs.499</h5>
+					</p>
+				</div>
+			</div>
+	</div>
+	<div id="border">
+		<div id="img-desc">
+			<img src="img/mobile.jpg"></img>
+			<div id="align">
+				<p>
+				<h4>Product Name</h4>
+				</p>
+				<p>Description: This product is...</p>
+				<p>
+				<h5>Price Rs.499</h5>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="border">
+		<div id="img-desc">
+			<img src="img/mobile.jpg"></img>
+			<div id="align">
+				<p>
+				<h4>Product Name</h4>
+				</p>
+				<p>Description: This product is...</p>
+				<p>
+				<h5>Price Rs.499</h5>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="form-container" id="myform">
+		<button formaction="home.html" type="submit" class="btn">home</button>
+	</div>
+	</form>
 </body>
 </html>

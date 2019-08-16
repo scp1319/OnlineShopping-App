@@ -69,9 +69,27 @@ form {border: 3px solid #f1f1f1;}
     color: blue;
   }
 
+  .logo{  font-family: serif;
+    font-size: 25px; 
+    font-weight: bold;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #111;
+    cursor: pointer;
+
+}
+
   #top{
     margin-top: 10%;
     
   }
 
+  .prod-img{
+    margin-left: 40%;
+    height: 60px;
+    width: 60px;
+  }
 

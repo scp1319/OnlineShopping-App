@@ -4,7 +4,7 @@ body {font-family: Arial, Helvetica, sans-serif;
       form {border: 3px solid #f1f1f1;}
     
       #myform{    
-            margin-top: 10%;
+            margin-top: 5%;
             margin-left: 40%;
       }
 
@@ -89,7 +89,12 @@ body {font-family: Arial, Helvetica, sans-serif;
       }
 
       #cart-align{
-        float: right;
+      margin-top: 32px;
+      color: white;
+      text-align: center;
+      padding: 0px 10px;
+      text-decoration: none;
+      float: right;
       }
 
       li a {
@@ -105,15 +110,20 @@ body {font-family: Arial, Helvetica, sans-serif;
       }
 
       .header{
+	  margin-top: 0.5px; 
           float: center;
           display: block;
-          color: white;
+          color: black;
           text-align: center;
-          padding: 14px 16px;
+	  font-weight:bold;
+          padding: 4px 16px;
           text-decoration: none;
-          background-color: #111;
+          background-color: burlywood;
           cursor: pointer;
       }
+
+      
+      
 
       #search{
         display: inline;
@@ -137,7 +147,7 @@ body {font-family: Arial, Helvetica, sans-serif;
 
      
       #img-align{
-       margin-top: 1.33em;
+        margin-top: 1.33em;
         height: 120px;
         width:225px;
       }
@@ -183,9 +193,10 @@ body {font-family: Arial, Helvetica, sans-serif;
     }
 
     .cart-align{
+      margin-top: 32px;	 
       color: white;
       text-align: center;
-      padding: 0px 26px;
+      padding: 0px 10px;
       text-decoration: none;
       float: right;
     }
@@ -193,7 +204,10 @@ body {font-family: Arial, Helvetica, sans-serif;
     #filter{
       margin-left: 60px;
     }
-
+	
+    #search{
+    margin-top: 32px;
+    }		
     .outline{
       float: left;
       margin-top:0%;
@@ -216,12 +230,11 @@ body {font-family: Arial, Helvetica, sans-serif;
     }
 
     .logo{  font-family: serif;
-        font-size: 25px; 
+        font-size: 36px; 
         font-weight: bold;
         display: block;
         color: white;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         background-color: #111;
         cursor: pointer;
@@ -291,5 +304,27 @@ body {font-family: Arial, Helvetica, sans-serif;
       height: 200px;
       border: solid 2px #f1f1f1;
     }
+
+    .table-align{
+      table-layout: auto;
+      margin-top: 5px;
+      border: solid 2px black;
+      border-collapse: collapse;
+    }
     
-   
+    td, th {
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .retailer-form {
+      float: left;
+      width:30%;
+    }
+
+    
+    
+    
+
+    
