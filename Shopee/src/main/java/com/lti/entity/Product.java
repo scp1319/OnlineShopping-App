@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="TBL_PRODUCT")
 public class Product {
@@ -25,10 +27,22 @@ public class Product {
 	@JoinColumn(name="catg_id")
 	private Category category;
 	
+	@ManyToOne
+	@JoinColumn(name="retailer_id")
+	@JsonIgnore
+	private Retailer retailer ; 
+	
 	/*
 	@Column(name="img_src")
 	private String imageSrc;*/
 	
+	public Retailer getRetailer() {
+		return retailer;
+	}
+
+	public void setRetailer(Retailer retailer) {
+		this.retailer = retailer;
+	}
 	private String description;
 	public Product() {
 		// TODO Auto-generated constructor stub
