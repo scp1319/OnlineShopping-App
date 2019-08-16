@@ -15,7 +15,7 @@ public class AdminDao {
 	protected EntityManager entityManager;
 
 	public Admin loginValidation(String email, String password) {
-		String query = "select a from Admin a where a.email =:em and a.password=:pwd";
+		String query = "select a from Admin a where a.emailId =:em and a.password=:pwd";
 		Query q = entityManager.createQuery(query);
 		q.setParameter("em", email);
 		q.setParameter("pwd", password);

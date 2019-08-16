@@ -23,10 +23,8 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@Autowired
-	private SendMailService sendMailService;
 	
-	@PostMapping("/adminLogin.lti")
+	@PostMapping("/AdminLogin.lti")
 	public Admin loginValidation(@RequestBody Credential credentials) {
 		return adminService.adminLogin(credentials.getEmail(), credentials.getPassword());
 	}

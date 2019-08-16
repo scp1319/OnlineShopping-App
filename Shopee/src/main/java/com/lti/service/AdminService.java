@@ -14,8 +14,8 @@ public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
 
-	@Autowired
-	private GenericDao dao;
+//	@Autowired
+//	private GenericDao dao;
 
 	@Transactional
 	public Admin adminLogin(String email, String password) {
