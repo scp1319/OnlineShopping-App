@@ -50,10 +50,11 @@ public class UserController {
 	public void sendMail() {
 		sendMailService.send();
 	}
+	/*
 	@PostMapping("/changePassword.lti")
 	public void changePassword(@RequestBody ChangePasswordInfo info)
 	{
 		userService.changePassword(info.getPassword(), info.getNewpassword());
 	}
-		
+	*/
 }

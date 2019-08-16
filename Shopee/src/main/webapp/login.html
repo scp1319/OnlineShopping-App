@@ -8,8 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
 	$(function() {
-		$("#loginButton")
-				.click(
+		$("#loginButton").click(
 						function(evt) {
 							evt.preventDefault();
 							var sessionEmail = $("#email").val();
@@ -17,14 +16,13 @@
 								email : $("#email").val(),
 								password : $("#password").val()
 							}
-							$
-									.ajax({
+							$.ajax({
 										url : 'UserLogin.lti',
 										method : 'POST',
 										contentType : 'application/json',
 										data : JSON.stringify(obj),
 										success : function(response) {
-											if (response != null) {
+											if (response != "") {
 												//session code start
 												if (typeof (Storage) !== "undefined") {
 													sessionStorage.setItem(

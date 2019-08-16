@@ -39,4 +39,10 @@ import com.lti.entity.Product;
 			return productDao.fetchByPriceHighToLow();
 		}
 		
+		@Transactional
+		public Product displayProductById(int productId){
+			return dao.fetchById(Product.class, productId);
+			
+		}
+		
 }

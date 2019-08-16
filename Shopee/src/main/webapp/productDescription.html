@@ -5,17 +5,23 @@
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <title>Product Description</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/sessionManagement.js"></script>
 <script>
 	$(function() {
-		$("#logout").hide();
-		var userEmail = sessionStorage.getItem("userEmail");
-		if (userEmail != null) {
-			$("#userEmail").append(userEmail);
-			$("#logout").show();
-			$("#login").hide();
-			$("#register").hide();
-		}
-	});
+		var productId = sessionStorage.getItem("selectedProductId");
+		//alert(productId);
+		$.ajax({
+			url : 'displayProductById.lti?productId=' + productId,
+			method : 'GET',
+			success : function(response) {
+				$("#productDescription").append("<div class='column'><img id='img-prod-desc' src='img/mobile.jpg' alt='Snow'></div><div>"
+			+"<h4>Product Name: "+response.name+" </h4>"
+			+"<div class='desc-align'>Product Description:"+response.description+"</div>"
+			+"<div>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span>"
+			+"<div>"+"<button class='buy'>Add to cart</button><button class='buy'>Proceed to Buy</button></div></div>");
+			}
+		})
+	})
 </script>
 </head>
 <body>
@@ -42,20 +48,10 @@
 	</div>
 	<div class="header">Product Description</div>
 
-	<div>
-		<div class="column">
-			<img id="img-prod-desc" src="img/mobile.jpg" alt="Snow">
-		</div>
-		<div>
-			<h4>Product Name</h4>
-			<div class="desc-align">Product Description:</div>
-			<div>
-				Price <span class="currencyINR" id="price">Rs.499</span>
-				<div>
-					<button class="buy">Add to cart</button>
-					<button class="buy">Proceed to Buy</button>
-				</div>
-			</div>
+	<div id="productDescription">
+		
+		
+		
 		</div>
 	</div>
 </body>

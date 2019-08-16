@@ -37,4 +37,11 @@ public class ProductController {
 		return productService.displayProductByPriceHighToLow();
 	}
 	
+
+	@GetMapping("/displayProductById.lti")
+	public Product displayProduct(@RequestParam("productId") int productId ){
+	  Product product=productService.displayProductById(productId);
+		return product;
+	}
+	
 }
