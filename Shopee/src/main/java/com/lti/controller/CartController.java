@@ -32,7 +32,6 @@ public class CartController {
 	public void deleteFromCart(@RequestParam("itemId") int itemId) {
 		cartService.removeItemFromCart(itemId);
 	}
-	
 	@GetMapping("/fetchCartByUserId.lti")
 	public Cart fetchCartByUserId(@RequestParam("userId") int userId) {
 		return cartService.fetchCartByUserId(userId);

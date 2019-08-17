@@ -30,7 +30,6 @@ public class Item {
 	@JoinColumn(name="CART_ID")
 	@JsonIgnore
 	private Cart cart;	   
-	
 	public Product getProduct() {
 		return product;
 	}

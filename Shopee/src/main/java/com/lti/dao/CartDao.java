@@ -30,12 +30,7 @@ public class CartDao {
 		q.setParameter("userId", userId);
 		Cart c=(Cart)q.getSingleResult();
 		System.out.println("Cart Id "+c.getCartId());
-		/*try {
-			return (Cart) q.getSingleResult();
-		}
-		catch(Exception e) {
-			return null;
-		}*/
+		
 		return (Cart) q.getSingleResult();
 	}
 }

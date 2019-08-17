@@ -25,8 +25,6 @@ public class User {
 	private long mobNo;	
 	
 	private String address;
-	
-
 
 	public String getName() {
 		return name;

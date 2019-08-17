@@ -30,6 +30,7 @@ public class Cart {
 
 	@OneToMany(mappedBy = "cart")
 	@JsonIgnore
+	
 	private Set<Item> items;
 	
 	public Set<Item> getItems() {
