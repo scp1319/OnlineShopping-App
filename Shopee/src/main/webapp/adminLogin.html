@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Retailer Login</title>
+<title>Admin Login</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -16,7 +16,7 @@
 				password : $("#password").val()
 			}
 			$.ajax({
-				url : 'RetailerLogin.lti',
+				url : 'AdminLogin.lti',
 				method : 'POST',
 				contentType : 'application/json',
 				data : JSON.stringify(obj),
@@ -26,8 +26,8 @@
 						
 						//session code start
 						if (typeof (Storage) !== "undefined") {
-							sessionStorage.setItem("retailerEmail",response.email);
-							sessionStorage.setItem("retailerId",response.retailerId);
+							sessionStorage.setItem("adminEmail",response.emailId);
+							sessionStorage.setItem("adminId",response.adminId);
 						} else {
 							alert("Sorry, your browser does not support Web Storage...");
 						}
@@ -53,7 +53,7 @@
 	</div>
 	</ul>
 	</div>
-	<div class="header">Retailer Login</div>
+	<div class="header">Admin Login</div>
 	<div>
 		<div id="myform">
 			<form class="form-container">
