@@ -5,22 +5,29 @@
 <title>Products</title>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="js/sessionManagement.js"></script>
 <script type="text/javascript" src="js/priceFilter.js"></script>
+<script type="text/javascript" src="js/sessionManagement.js"></script>
+
 <script>
 	$(function() { 
 		var userId = sessionStorage.getItem("userId");
 		alert(userId);
-		$.ajax({
-			url : 'fetchCartByUserId.lti?userId='+userId,
-			method : 'GET',
-			contentType : 'application/json',
-			data : JSON.stringify(userId),
-			success : function(response) {
-				var cartId = response.cartId;
-				
-			}
-		})
+		if (userId!=null){
+			$.ajax({
+				url : 'fetchCartByUserId.lti?userId='+userId,
+				method : 'GET',
+				contentType : 'application/json',
+				data : JSON.stringify(userId),
+				success : function(response) {
+					var cartId = response.cartId;
+					sessionStorage.setItem("cartId",cartId);
+				}
+			})
+		}
+		else{
+			alert("you need to login");
+			//window.location.href = "login.html";
+		}
 	})
 </script>
 </head>

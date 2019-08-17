@@ -18,10 +18,7 @@ $(function() {
 												+ "</p>"
 												+ "<div>Price <span class='currencyINR' id='price'>Rs."
 												+ product.price
-												+ "</span><div>"
-												+ "<button class='buy'>Add to cart</button>"
-												+ "<button class='buy'>Add to Wishlist</button>"
-						);
+												+ "</span><div>");
 						$("#productDisplayList").append(knowMore);
 						knowMore.attr("class", "selectedProduct");
 						knowMore.attr("selectedProductId", product.id);
@@ -66,9 +63,7 @@ $(function() {
 																				+ "</p>"
 																				+ "<div>Price <span class='currencyINR' id='price'>Rs."
 																				+ product.price
-																				+ "</span><div>"
-																				+ "<button class='buy'>Add to cart</button>"
-																				+ "<button class='buy'>Add to Wishlist</button>");
+																				+ "</span>");
 														$("#productDisplayList")
 																.append(
 																		knowMore);
@@ -83,7 +78,7 @@ $(function() {
 																.text("Know more");
 														$("#productDisplayList")
 																.append(
-																		"</div></div></div></div></div>");
+																		"</div></div></div></div>");
 													})
 
 											$("#productDisplayList")
@@ -128,9 +123,7 @@ $(function() {
 																				+ "</p>"
 																				+ "<div>Price <span class='currencyINR' id='price'>Rs."
 																				+ product.price
-																				+ "</span><div>"
-																				+ "<button class='buy'>Add to cart</button>"
-																				+ "<button class='buy'>Add to Wishlist</button>");
+																				+ "</span>");
 														$("#productDisplayList")
 																.append(
 																		knowMore);
@@ -145,7 +138,7 @@ $(function() {
 																.text("Know more");
 														$("#productDisplayList")
 																.append(
-																		"</div></div></div></div></div>");
+																		"</div></div></div></div>");
 													})
 
 											$("#productDisplayList")
