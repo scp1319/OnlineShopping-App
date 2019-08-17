@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.AdminDao;
+import com.lti.dao.GenericDao;
 import com.lti.entity.Admin;
 import com.lti.entity.Retailer;
 
@@ -16,8 +17,8 @@ public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
 
-//	@Autowired
-//	private GenericDao dao;
+	@Autowired
+	private GenericDao dao;
 
 	@Transactional
 	public Admin adminLogin(String email, String password) {
@@ -26,5 +27,11 @@ public class AdminService {
 	public List <Retailer> displayRetailer(int adminId) {
 		return adminDao.displayRetailer(adminId);
 	}
-
+	
+	@Transactional
+	public void removeRetailer(int retailerId)
+	{
+		Retailer retailer =dao.fetchById(Retailer.class, retailerId);
+		dao.delete(retailer);
+	}
 }

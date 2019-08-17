@@ -3,12 +3,14 @@ package com.lti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.CartValue;
 import com.lti.dto.Credential;
 import com.lti.entity.Admin;
 import com.lti.entity.Retailer;
@@ -29,4 +31,8 @@ public class AdminController {
 	public List <Retailer> displayRetailer(@RequestParam("adminId") int adminId) {
 		return adminService.displayRetailer(adminId);
 	}
+	@DeleteMapping("/deleteRetailer.lti")
+	public void deleteRetailer(@RequestParam("retailerId") int retailerId) {
+		adminService.removeRetailer(retailerId);	
+}
 }

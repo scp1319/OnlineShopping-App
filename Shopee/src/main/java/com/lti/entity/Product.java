@@ -1,5 +1,6 @@
 package com.lti.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Product {
 	@JoinColumn(name="catg_id")
 	private Category category;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="retailer_id")
 	@JsonIgnore
 	private Retailer retailer ; 

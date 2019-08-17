@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		$("#RetailerDelete").click(function(evt) {
+			evt.preventDefault();
+			var retailerId = $("#retailerId").val();
+			$.ajax({
+				url : 'deleteRetailer.lti?retailerId='+retailerId,
+				method : 'DELETE',
+				data: JSON.stringify(retailerId),
+				contentType : 'application/json',
+				success : function(response) {
+					alert("Retailer Deleted");
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	<input type="number" placeholder="ReatailerId" id="retailerId">
+	<input type="submit" value="submit" id="RetailerDelete">
+</body>
+</html>
