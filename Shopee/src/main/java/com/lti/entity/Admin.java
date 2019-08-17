@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="TBL_ADMIN")
 public class Admin {
@@ -23,6 +25,7 @@ public class Admin {
 	private String emailId;
 	private String password;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="admin")
     private Set<Retailer> retailers;
     

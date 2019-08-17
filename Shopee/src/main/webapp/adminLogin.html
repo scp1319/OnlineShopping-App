@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Login</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		$("#loginButton").click(function(evt) {
+			evt.preventDefault();
+			var sessionEmail = $("#email").val();
+			var obj = {
+				email : $("#email").val(),
+				password : $("#password").val()
+			}
+			$.ajax({
+				url : 'AdminLogin.lti',
+				method : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(obj),
+				success : function(response) {
+					//alert(JSON.stringify(response));
+					if (response != "") {
+						
+						//session code start
+						if (typeof (Storage) !== "undefined") {
+							sessionStorage.setItem("adminEmail",response.emailId);
+							sessionStorage.setItem("adminId",response.adminId);
+						} else {
+							alert("Sorry, your browser does not support Web Storage...");
+						}
+						//end
+						
+						window.location.href = "adminprofile.html";
+					} else {
+
+						$("#error").html("Invalid credentials");
+					}
+				}
+			})
+		})
+	})
+</script>
+
+<body>
+	<div>
+		<ul>
+			<li><div class="logo">
+					<img class="logo-size" src="img/logo.jpg">Shoppe
+				</div></li>
+	</div>
+	</ul>
+	</div>
+	<div class="header">Admin Login</div>
+	<div>
+		<div id="myform">
+			<form class="form-container">
+				<h2>Login</h2>
+				Username:<input type="text" placeholder="Enter email" id="email">
+				Password:<input type="password" placeholder="Enter password"
+					id="password">
+				<div id="error"></div>
+				<button type="submit" class="btn" id="loginButton">login</button>
+
+			</form>
+</body>
+</html>
