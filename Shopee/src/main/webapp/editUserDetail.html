@@ -5,18 +5,31 @@
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <title>User Details</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/sessionManagement.js"></script>
 <script>
-	$(function() {
-		$("#logout").hide();
-		var userEmail = sessionStorage.getItem("userEmail");
-		if (userEmail != null) {
-			$("#userEmail").append(userEmail);
-			$("#logout").show();
-			$("#login").hide();
-			$("#register").hide();
+$(function() {
+	var userId = sessionStorage.getItem("userId");
+	$("#editUserButton").click(function(evt){
+		evt.preventDefault();
+		var obj = {
+				userId: userId,
+				name: $("#name").val(),
+				email: $("#email").val(),
+				mobileno:$("#mobileno").val(),
+				address:$("#address").val()
 		}
+		$.ajax({
+				url : 'editUserDetails.lti',
+				method : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(obj),
+				success: function(response) {
+					alert("User edited");
+				}
+		})
+	})
+})
 
-	});
 </script>
 </head>
 <body>
@@ -31,30 +44,24 @@
 			<li><a class="cart-align" href="userprofile.html">User
 					Profile</a></li>
 			<div>
-				<input id="search" type="text"
-					placeholder="What are you lookign for?.." name="search">
+				<input id="search" type="text" placeholder="What are you lookign for?.." name="search">
 				<button type="submit">Search</button>
-				<a id="login" class="cart-align" href="login.html">Login</a> <a
-					id="register" class="cart-align" href="register.html">Register</a>
-				<a id="logout" class="cart-align" href="logout.html">Logout</a> <a
-					id="userEmail" class="cart-align" href="#" style="color: white"></a>
+				<a id="login" class="cart-align" href="login.html">Login</a> 
+				<a id="register" class="cart-align" href="register.html">Register</a>
+				<a id="logout" class="cart-align" href="logout.html">Logout</a> 
+				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>
 	</div>
 	<div class="header">Edit User Details</div>
 	<div id="myform">
 		<form class="form-container" id="detail">
-
 			Name:<input type="text" placeholder="Enter name" id="name">
-
-			Mobile Number:<input type="text" placeholder="Enter Mobile Number"
-				id="mobno"> Address:<input type="text"
-				placeholder="Enter Address" id="address"> Email:<input
-				type="text" placeholder="Enter Email" id="email">
-
-
-			<button type="submit" class="btn">Edit Details</button>
-
+			Mobile Number:<input name="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+				type="number" maxlength="10" placeholder="Enter number" id="mobileNo" length=10 required> 
+			Address:<input type="text" placeholder="Enter Address" id="address"> 
+			Email:<input type="text" placeholder="Enter Email" id="email">
+			<button type="submit" class="btn" id="editUserButton">Edit Details</button>
 		</form>
 	</div>
 </body>

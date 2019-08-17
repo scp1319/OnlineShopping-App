@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.ChangePasswordInfo;
@@ -35,11 +36,12 @@ public class UserController {
 		status.setGeneratedId(userId);
 		return status;
 	}
+	
 	@GetMapping("/userDisplay.lti")
-	public User displayUser(int userId)
-	{
+	public User displayUser(@RequestParam("userId")int userId){
 		return userService.userDetails(userId);
 	}
+	
 	@PostMapping("/editUserDetails.lti")
 	public void editUser(@RequestBody EditUserInfo  info){
 		userService.editUserDetails(info.getUserId(),info.getName(),info.getEmail(),info.getMobileno(),info.getAddress());

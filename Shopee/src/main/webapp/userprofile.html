@@ -5,18 +5,9 @@
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <title>User Profile</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/sessionManagement.js"></script>
 <script>
-	$(function() {
-		$("#logout").hide();
-		var userEmail = sessionStorage.getItem("userEmail");
-		if (userEmail != null) {
-			$("#userEmail").append(userEmail);
-			$("#logout").show();
-			$("#login").hide();
-			$("#register").hide();
-		}
 
-	});
 </script>
 </head>
 <body>

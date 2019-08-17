@@ -25,12 +25,8 @@
 											if (response != "") {
 												//session code start
 												if (typeof (Storage) !== "undefined") {
-													sessionStorage.setItem(
-															"userEmail",
-															response.email);
-													sessionStorage.setItem(
-															"userId",
-															response.userId);
+													sessionStorage.setItem("userEmail",response.email);
+													sessionStorage.setItem("userId",response.id);
 												} else {
 													alert("Sorry, your browser does not support Web Storage...");
 												}

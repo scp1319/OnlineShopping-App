@@ -5,17 +5,25 @@
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <title>User Details</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/sessionManagement.js"></script>
 <script>
 	$(function() {
-		$("#logout").hide();
-		var userEmail = sessionStorage.getItem("userEmail");
-		if (userEmail != null) {
-			$("#userEmail").append(userEmail);
-			$("#logout").show();
-			$("#login").hide();
-			$("#register").hide();
-		}
-
+		var userId = sessionStorage.getItem("userId");
+		$.ajax({
+			url : 'userDisplay.lti?userId=' + userId,
+			method : 'GET',
+			contentType : 'application/json',
+			success : function(response) {
+				//alert(JSON.stringify(response));
+				$("#myUserDetail").append("<div class='form-container'>Name:"+response.name+"</div>"
+							+"<div class='form-container'>Mobile Number:"+response.mobNo+"</div>"
+							+"<div class='form-container'>Address:"+response.address+"</div>"
+							+"<div class='form-container'>Email:"+response.email+"</div>"
+							+"<button formaction='userprofile.html' type='submit' class='btn'>Back</button>"
+							+"<div id='edit'><a href='editUserDetail.html'>Edit your Info</a></div>"
+				);
+			}
+		})
 	});
 </script>
 </head>
@@ -43,14 +51,8 @@
 	</div>
 	<div class="header">User Details</div>
 	<div id="myform">
-		<form class="form-container" id="detail">
-			<div class="form-container">Name:</div>
-			<div class="form-container">Mobile Number:</div>
-			<div class="form-container">Address:</div>
-			<div class="form-container">Email:</div>
+		<form class="form-container" id="myUserDetail">
 
-			<button formaction="userprofile.html" type="submit" class="btn">Back</button>
-			<div id="edit">
-				<a href="editUserDetail.html">Edit your Info</a>
-			</div>
+			
+
 		</form>

@@ -1,6 +1,7 @@
 $(function() {
 		$("#logout").hide();
 		var userEmail = sessionStorage.getItem("userEmail");
+		var userId = sessionStorage.getItem("userId");
 		
 		if (userEmail != null) {
 			$("#userEmail").append(userEmail);
@@ -8,5 +9,5 @@ $(function() {
 			$("#login").hide();
 			$("#register").hide();
 		}
-
+		
 	});
