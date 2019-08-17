@@ -1,5 +1,7 @@
 package com.lti.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,15 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.Credential;
-import com.lti.dto.EditUserInfo;
-import com.lti.dto.Status;
 import com.lti.entity.Admin;
-import com.lti.entity.Product;
-import com.lti.entity.User;
+import com.lti.entity.Retailer;
 import com.lti.service.AdminService;
-import com.lti.service.ProductService;
-import com.lti.service.SendMailService;
-import com.lti.service.UserService;
 
 @RestController
 public class AdminController {
@@ -27,5 +23,10 @@ public class AdminController {
 	@PostMapping("/AdminLogin.lti")
 	public Admin loginValidation(@RequestBody Credential credentials) {
 		return adminService.adminLogin(credentials.getEmail(), credentials.getPassword());
+	}
+	
+	@GetMapping("/DisplayRetailer.lti")
+	public List <Retailer> displayRetailer(@RequestParam("adminId") int adminId) {
+		return adminService.displayRetailer(adminId);
 	}
 }

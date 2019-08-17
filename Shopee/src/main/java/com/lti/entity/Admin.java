@@ -1,9 +1,12 @@
  	package com.lti.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,16 @@ public class Admin {
 	@Column(name="email")
 	private String emailId;
 	private String password;
+	
+	@OneToMany(mappedBy="admin")
+    private Set<Retailer> retailers;
+    
+	public Set<Retailer> getRetailers() {
+		return retailers;
+	}
+	public void setRetailers(Set<Retailer> retailers) {
+		this.retailers = retailers;
+	}
 	public int getAdminId() {
 		return adminId;
 	}
@@ -43,6 +56,4 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-
 }

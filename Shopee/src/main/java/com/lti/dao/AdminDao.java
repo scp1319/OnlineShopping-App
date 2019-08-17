@@ -1,5 +1,7 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -7,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Admin;
+import com.lti.entity.Retailer;
 
 @Repository
 public class AdminDao {
@@ -25,6 +28,15 @@ public class AdminDao {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+	
+	public List <Retailer>  displayRetailer(int adminId) {
+		String query = "select r from Retailer r where r.admin.adminId =:aid";
+		Query q = entityManager.createQuery(query);
+		q.setParameter("aid",adminId);
+		List <Retailer> retailer =  q.getResultList();
+		return retailer;
+		
 	}
 
 }
