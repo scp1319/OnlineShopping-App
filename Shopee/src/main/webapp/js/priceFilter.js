@@ -3,7 +3,6 @@ $(function() {
 		url : 'displayAllProduct.lti',
 		method : 'POST',
 		contentType : 'application/json',
-
 		success : function(response) {
 			response.forEach(function(product) {
 						var knowMore = $("<button id='buy'/>")
