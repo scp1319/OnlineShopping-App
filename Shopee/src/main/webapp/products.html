@@ -8,7 +8,20 @@
 <script type="text/javascript" src="js/sessionManagement.js"></script>
 <script type="text/javascript" src="js/priceFilter.js"></script>
 <script>
-	
+	$(function() {
+		var userId = sessionStorage.getItem("userId");
+		alert(userId);
+		$.ajax({
+			url : 'fetchCartByUserId.lti?userId='+userId,
+			method : 'GET',
+			contentType : 'application/json',
+			data : JSON.stringify(userId),
+			success : function(response) {
+				var cartId = response.cartId;
+				
+			}
+		})
+	})
 </script>
 </head>
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">

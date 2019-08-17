@@ -16,10 +16,26 @@ public class CartDao {
 	@PersistenceContext
 	protected EntityManager entityManager;
 
-	public Cart displayCart(int cartid) {
+	public Cart displayCart(int cartId) {
 		String query = "select c from Cart c join fetch c.items where c.cartId=:id";
 		Query q = entityManager.createQuery(query);
-		q.setParameter("id", cartid);
+		q.setParameter("id", cartId);
+		return (Cart) q.getSingleResult();
+	}
+	
+	
+	public Cart fetchCartByUserId(int userId) {
+		String query = "select c from Cart c where c.user.id=:userId";
+		Query q = entityManager.createQuery(query);
+		q.setParameter("userId", userId);
+		Cart c=(Cart)q.getSingleResult();
+		System.out.println("Cart Id "+c.getCartId());
+		/*try {
+			return (Cart) q.getSingleResult();
+		}
+		catch(Exception e) {
+			return null;
+		}*/
 		return (Cart) q.getSingleResult();
 	}
 }

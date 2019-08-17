@@ -27,8 +27,15 @@ public class CartController {
 	public Cart displayProductsInCart(@RequestParam("cartId") int cartid) {
 		return cartService.displayCartService(cartid);
 	}
+	
 	@DeleteMapping("/deleteFromCart.lti")
 	public void deleteFromCart(@RequestParam("itemId") int itemId) {
 		cartService.removeItemFromCart(itemId);
 	}
+	
+	@GetMapping("/fetchCartByUserId.lti")
+	public Cart fetchCartByUserId(@RequestParam("userId") int userId) {
+		return cartService.fetchCartByUserId(userId);
+	}
+	
 }

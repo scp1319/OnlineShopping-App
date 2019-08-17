@@ -22,6 +22,7 @@ public class Item {
 	private int itemId;
 	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name="PRODUCT_ID")
 	private Product product;
 	

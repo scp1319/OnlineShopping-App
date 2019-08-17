@@ -34,12 +34,17 @@ public class CartService {
 		return cartDao.displayCart(cartid);
 	}
 	@Transactional
-	public void removeItemFromCart(int itemId)
-	{
+	public void removeItemFromCart(int itemId){
 		Item item =dao.fetchById(Item.class, itemId);
 		Cart c=dao.fetchById(Cart.class, item.getCart().getCartId());
 		c.setTotal(c.getTotal()-item.getProduct().getPrice()*item.getQuantity());
 		dao.save(c);
 		dao.delete(item);
 	}
+	
+	@Transactional
+	public Cart fetchCartByUserId(int userId) {
+		return cartDao.fetchCartByUserId(userId);
+	}
+	
 }

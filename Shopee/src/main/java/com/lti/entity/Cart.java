@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="TBL_CART")
 public class Cart {
@@ -22,10 +24,12 @@ public class Cart {
 	private double total;
 	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name="user_id")
 	private User user;
 
 	@OneToMany(mappedBy = "cart")
+	@JsonIgnore
 	private Set<Item> items;
 	
 	public Set<Item> getItems() {
