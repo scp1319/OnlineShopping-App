@@ -50,9 +50,17 @@ public class UserService {
 		dao.save(u);
 	}
 	@Transactional
-	public void changePassword(String password,String newpassword) {
-		User u=userDao.fetchByPassword(password);
-		u.setPassword(newpassword);
-		dao.save(u);
+	public boolean changePassword(int userId, String password,String newpassword) {
+		User u=dao.fetchById(User.class, userId);
+		if(u.getPassword().equals(password))
+		{
+			u.setPassword(newpassword);
+			dao.save(u);
+			return true;
+		}
+		else {
+			return false;
+		}
+	
 	}
 }
