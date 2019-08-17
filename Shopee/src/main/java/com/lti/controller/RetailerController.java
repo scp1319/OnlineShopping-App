@@ -33,9 +33,8 @@ public class RetailerController {
 
 	@PostMapping("/addProductInfo.lti")
 	public void addProductInfo(ProductInfo info) {
-		String path = "D:\\new\\";
-		String filename = info.getName() + "-" + info.getDocument().getOriginalFilename(); 
-		String imagePath = path + filename; 
+		String filename =info.getDocument().getOriginalFilename(); 
+		String imagePath = filename; 
 		try 
 		{
 		info.getDocument().transferTo(new File(imagePath));

@@ -25,6 +25,7 @@ public class Product {
 	private String brand;
 	private double price;
 	private int stock;
+	
 	@Column(name="img_src")
 	private String imagePath;
 

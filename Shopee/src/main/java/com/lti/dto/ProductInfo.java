@@ -3,6 +3,7 @@ package com.lti.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductInfo {
+	
 private String name;
 private String brand;
 private String description;

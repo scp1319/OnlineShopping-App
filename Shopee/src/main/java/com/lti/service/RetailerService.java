@@ -34,6 +34,7 @@ public class RetailerService {
 		product.setRetailer(retailer);
 		product.setCategory(category);
 		product.setImagePath(imagePath);
+		
 		dao.save(product);
 	}
 	@Transactional
