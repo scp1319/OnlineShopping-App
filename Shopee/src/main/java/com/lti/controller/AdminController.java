@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.CartValue;
 import com.lti.dto.Credential;
+import com.lti.dto.RetailerDetails;
 import com.lti.entity.Admin;
 import com.lti.entity.Retailer;
 import com.lti.service.AdminService;
@@ -35,4 +36,8 @@ public class AdminController {
 	public void deleteRetailer(@RequestParam("retailerId") int retailerId) {
 		adminService.removeRetailer(retailerId);	
 }
+	@PostMapping("/addRetailer.lti")
+	public void addRetailer(@RequestBody RetailerDetails retailerDetails) {
+		adminService.addRetailer(retailerDetails.getPassword(), retailerDetails.getName(),retailerDetails.getEmail(),retailerDetails.getAdminId());
+	}
 }

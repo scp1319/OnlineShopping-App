@@ -6,7 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.GenericDao;
 import com.lti.dao.RetailerDao;
+import com.lti.entity.Cart;
 import com.lti.entity.Category;
+import com.lti.entity.Item;
 import com.lti.entity.Product;
 import com.lti.entity.Retailer;
 @Service
@@ -36,4 +38,5 @@ public class RetailerService {
 	public Retailer retailerLogin(String email, String password) {
 		return retailerDao.loginValidation(email, password);
 	}
+	
 }

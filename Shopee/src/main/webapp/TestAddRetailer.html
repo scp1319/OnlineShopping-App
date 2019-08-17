@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#addRetailer").click(function(evt){
+		evt.preventDefault();
+		var obj = {
+				name: $("#name").val(),
+				email: $("#email").val(),
+				password: $("#password").val(),
+				adminId: $("#adminid").val(),
+			}
+	$.ajax({
+		url: 'addRetailer.lti',
+		method:'POST',
+		data: JSON.stringify(obj),
+		contentType:'application/json',
+		success:function(response){
+			alert("Retailer added");
+			location.reload();
+		}
+	})
+	})	
+})
+</script>
+</head>
+<body>
+<input type="text" name="name" id="name" placeholder="name">
+<input type="text" placeholder="email" id="email">
+<input type="password" placeholder="password" id="password">
+<input type="number" placeholder="adminid" id="adminid">
+<input type="submit" value="submit" id="addRetailer">
+</body>
+</html>

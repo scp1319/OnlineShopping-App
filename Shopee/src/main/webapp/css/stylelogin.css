@@ -77,6 +77,7 @@ body {font-family: Arial, Helvetica, sans-serif;
      
       
       ul {
+        
         list-style-type: none;
         margin: 0;
         padding: 6px;
@@ -88,17 +89,8 @@ body {font-family: Arial, Helvetica, sans-serif;
         float: left;
       }
 
-      #cart-align{
-      margin-top: 32px;
-      color: white;
-      text-align: center;
-      padding: 0px 10px;
-      text-decoration: none;
-      float: right;
-      }
-
+      
       li a {
-        
         color: white;
         text-align: center;
         padding: 14px 6px;
@@ -110,24 +102,22 @@ body {font-family: Arial, Helvetica, sans-serif;
       }
 
       .header{
-	  margin-top: 0.5px; 
-          float: center;
-          display: block;
-          color: black;
-          text-align: center;
-	  font-weight:bold;
-          padding: 4px 16px;
-          text-decoration: none;
-          background-color: burlywood;
-          cursor: pointer;
+        margin-top: 0.5px; 
+        float: center;
+        display: block;
+        color: black;
+        text-align: center;
+        font-weight:bold;
+        padding: 4px 16px;
+        text-decoration: none;
+        background-color: burlywood;
+        cursor: pointer;
       }
 
-      
-      
 
       #search{
         display: inline;
-        width: 300px;
+        width: 300px; 
       }
 
       #top{
@@ -153,6 +143,7 @@ body {font-family: Arial, Helvetica, sans-serif;
       }
       #img-desc{
         display: flex;
+        width: 40%;
       } 
 
       #bottom{
@@ -163,6 +154,7 @@ body {font-family: Arial, Helvetica, sans-serif;
 
       #align{
         margin-left: 5%;
+        max-width: 50%;
       }
 
       .a-spacing-top-base {
@@ -192,6 +184,7 @@ body {font-family: Arial, Helvetica, sans-serif;
       text-align: right;
     }
 
+    
     .cart-align{
       margin-top: 32px;	 
       color: white;
@@ -204,10 +197,10 @@ body {font-family: Arial, Helvetica, sans-serif;
     #filter{
       margin-left: 60px;
     }
-	
+
     #search{
-    margin-top: 32px;
-    }		
+      margin-top: 32px;
+      }	
     .outline{
       float: left;
       margin-top:0%;
@@ -235,6 +228,7 @@ body {font-family: Arial, Helvetica, sans-serif;
         display: block;
         color: white;
         text-align: center;
+       
         text-decoration: none;
         background-color: #111;
         cursor: pointer;
@@ -323,8 +317,45 @@ body {font-family: Arial, Helvetica, sans-serif;
       width:30%;
     }
 
-    
-    
+    #del{
+      margin-left: 24px;
+    }
+
+    #add{
+      margin-left: 40%;
+    }
+
+    #table{
+      margin-left: 33%;
+    }
+
+    #total{
+      margin-left: 3%;
+      float:left;
+      margin-top: 40px;
+      width: 180px;
+      height: 80px;
+      border: 2px solid  #f1f1f1;
+     
+     }
+
+     #sub-total{
+      margin-left:26px;  
+      margin-top: 40px;
+      
+     }
+
+     #sub-btn{
+      margin-left: 34px;
+     }
+
+     #sub-width{
+      width: 1100px;
+     }
+   
+     #sub-float{
+      float: left;
+     }
     
 
     
