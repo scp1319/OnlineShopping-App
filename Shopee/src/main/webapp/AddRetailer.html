@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/styleregister.css">
+  <title>Add Retailer</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#addRetailer").click(function(evt){
+		evt.preventDefault();
+		var obj = {
+				name: $("#name").val(),
+				email: $("#email").val(),
+				password: $("#password").val(),
+				adminId: $("#adminid").val(),
+			}
+	$.ajax({
+		url: 'addRetailer.lti',
+		method:'POST',
+		data: JSON.stringify(obj),
+		contentType:'application/json',
+		success:function(response){
+			alert("Retailer added");
+			location.reload();
+		}
+	})
+	})	
+})
+</script>
+</head>
+<body>
+  <div>
+    <ul>
+      <li>
+        <div class="logo-add"><img class="logo-size" src="logo.jpg">Shoppe
+        </div>
+      </li>
+  </div>
+  </ul>
+  </div>
+  <div class="head">Add Retailer</div>
+  <div>
+    <div id="myForm">
+      <form class="form-container" id="top">
+
+
+
+        <label for="Name"><b>Retailer's Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" id="name" required>
+
+        <label for="Email"><b>Retailer's Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" id="email" required>
+        
+         <label for="Default Password"><b>Retailer's Default Password</b></label>
+        <input type="password" placeholder="Enter default password" name="password" id="password" required>
+        
+        <label for="Admin Id"><b>Admin Assigned to Retailer</b></label>
+        <input type="number" placeholder="Enter Admin Id" name="adminid" id="adminid" required>
+        
+        <button formaction="#" type="submit" class="btn" id="addRetailer">Done</button>
+      </form>
+    </div>
+</body>
+</html>
