@@ -1,5 +1,7 @@
 package com.lti.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductInfo {
 private String name;
 private String brand;
@@ -8,8 +10,17 @@ private double price;
 private int stock;
 private int retailerId;
 private int categoryId;
+private MultipartFile document;
+
 public ProductInfo() {
 	// TODO Auto-generated constructor stub
+}
+public MultipartFile getDocument() {
+	return document;
+}
+
+public void setDocument(MultipartFile document) {
+	this.document = document;
 }
 public String getName() {
 	return name;

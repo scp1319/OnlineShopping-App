@@ -3,6 +3,7 @@ package com.lti.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.lti.dao.GenericDao;
 import com.lti.dao.RetailerDao;
@@ -21,7 +22,7 @@ public class RetailerService {
 	private RetailerDao retailerDao;
 
 	@Transactional
-	public void addProducts(String name, String brand, String description, double price, int stock, int retailerId, int categoryId) {
+	public void addProducts(String name, String brand, String description, double price, int stock, int retailerId, int categoryId, String imagePath) {
 		Product product=new Product();
 		Retailer retailer=dao.fetchById(Retailer.class, retailerId);
 		Category category=dao.fetchById(Category.class, categoryId);
@@ -32,6 +33,7 @@ public class RetailerService {
 		product.setStock(stock);
 		product.setRetailer(retailer);
 		product.setCategory(category);
+		product.setImagePath(imagePath);
 		dao.save(product);
 	}
 	@Transactional
