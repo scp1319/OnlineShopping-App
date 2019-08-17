@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lti.dao.AdminDao;
 import com.lti.dao.GenericDao;
 import com.lti.entity.Admin;
+import com.lti.entity.Cart;
+import com.lti.entity.Item;
+import com.lti.entity.Product;
 import com.lti.entity.Retailer;
 
 @Service
@@ -33,5 +36,16 @@ public class AdminService {
 	{
 		Retailer retailer =dao.fetchById(Retailer.class, retailerId);
 		dao.delete(retailer);
+	}
+	
+	@Transactional
+	public void addRetailer(String password ,String name ,String email ,int adminId) {
+		Retailer retailer=new Retailer();
+		retailer.setEmail(email);
+		retailer.setName(name);
+		retailer.setPassword(password);
+		Admin admin=dao.fetchById(Admin.class, adminId);
+		retailer.setAdmin(admin);
+		dao.save(retailer);
 	}
 }
