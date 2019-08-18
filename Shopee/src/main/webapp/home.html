@@ -31,8 +31,28 @@
 			</div>
 		</ul>
 	</div>
-
-
-	<h1></h1>
+<div>
+    <img class="mySlides" id="img-height" src="img/slide1.jpg">
+    <img class="mySlides" id="img-height" src="img/slide1.jpg">
+    <img class="mySlides" id="img-height" src="img/slide1.jpg">
+    <button class="slide-button slide-black slide-display-left" onclick="plusDivs(-1)"><</button>
+    <button class="slide-button slide-black slide-display-right" onclick="plusDivs(1)">></button>
+  </div>
+  <script>
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); 
+  }
+  </script>
 </body>
 </html>
