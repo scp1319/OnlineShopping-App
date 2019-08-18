@@ -1,5 +1,7 @@
 package com.lti.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,5 +54,10 @@ public class RetailerService {
 		}
 	
 	}
+	
+	public List<Product> displayProductByRetailerId(int retailerId){
+		return retailerDao.displayProductByRetailerId(retailerId);
+	}
+	
 	
 }

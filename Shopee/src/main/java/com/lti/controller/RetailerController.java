@@ -14,6 +14,7 @@ import com.lti.dto.ChangeRetailerPasswordInfo;
 import com.lti.dto.Credential;
 import com.lti.dto.ProductInfo;
 import com.lti.entity.Category;
+import com.lti.entity.Product;
 import com.lti.entity.Retailer;
 import com.lti.service.CategoryService;
 import com.lti.service.RetailerService;
@@ -55,9 +56,15 @@ public class RetailerController {
 	public Retailer loginValidation(@RequestBody Credential credentials) {
 		return retailerService.retailerLogin(credentials.getEmail(), credentials.getPassword());
 	}
+	
 	@PostMapping("/changeRetailerPassword.lti")
 	public boolean changePassword(@RequestBody ChangeRetailerPasswordInfo info)
 	{
 		return retailerService.changePassword(info.getRetailerId(), info.getPassword(), info.getNewpassword());
+	}
+	
+	@GetMapping("/displayProductByRetailerId.lti")
+	public List<Product> displayProductByRetailerId(int retailerId){
+		return retailerService.displayProductByRetailerId(retailerId);
 	}
 }

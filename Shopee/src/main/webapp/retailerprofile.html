@@ -4,6 +4,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
     <title>Retailer Profile</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="js/sessionManagementAdmin.js"></script>
+    <script>
+    $(function() {
+		
+			var retailerId = sessionStorage.getItem("retailerId");
+			$.ajax({
+				url : 'displayProductByRetailerId.lti?retailerId=' + retailerId,
+				method : 'GET',
+				contentType : 'application/json',
+				success : function(response) {
+					//alert(JSON.stringify(response));
+					response.forEach(function(product) {	
+					$("#table").append(" <tr><td>"+product.name+"</td>"
+					           +"<td>"+product.description+"</td>"
+					           +"<td>"+product.price+"</td>");
+				})
+				}
+			})
+	})
+</script>
+    
 </head>
 <body>    
       <div>
@@ -12,8 +34,7 @@
 					<img class="logo-size" src="img/logo.jpg"><a href="home.html">Shoppe</a>
 				</div></li>
 			
-				<a id="login" class="cart-align" href="login.html">Login</a> 
-				<a id="logout" class="cart-align" href="logout.html">Logout</a> 
+				<a id="logout" class="cart-align" href="logoutRetailer.html">Logout</a> 
 				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>
@@ -24,58 +45,20 @@
             <div class="form-container">
                 <form>
                   <button formaction="retailerdetails.html" type="submit" class="btn">Retailer Details</button>
-                  <button formaction="changepassword.html" type="submit" class="btn">Change password</button>
-                  <button formaction="addproduct.html" type="submit" class="btn">Add Product</button>       
+                  <button formaction="RetailerChangePassword.html" type="submit" class="btn">Change password</button>
+                  <button formaction="AddProduct.html" type="submit" class="btn">Add Product</button>       
                 </form>
               </div> 
         </div>
         <div>
-            <table class="table-align" >
+            <table class="table-align" id="table" >
                 <tr>
                   <th>Product Name</th>
-                  <th>Product Descrition</th>
+                  <th>Product Description</th>
                   <th>Price</th>
-                </tr>  
-                 <tr>
-                   <td>saasdasdasdasdadasdasdasdd</td>
-                   <td>asasdadasdasdasdasdasdasdasdasdadda</td>
-                   <td>123</td> 
-                 </tr>
-                 <tr>
-                    <td>sad</td>
-                    <td>asd</td>
-                    <td>31</td> 
-                  </tr> 
-                  <tr>
-                      <td>sad</td>
-                      <td>asd</td>
-                      <td>213</td> 
-                    </tr> 
-                    <tr>
-                        <td>sad</td>
-                        <td>asd</td>
-                        <td>13</td> 
-                      </tr> 
-                      <tr>
-                          <td>sad</td>
-                          <td>asd</td>
-                          <td>123</td> 
-                        </tr> 
-                        <tr>
-                            <td>sad</td>
-                            <td>asd</td>
-                            <td>123</td> 
-                          </tr> 
-                          <tr>
-                              <td>sad</td>
-                              <td>asd</td>
-                              <td>312</td> 
-                            </tr>    
-
-                            
+                </tr>         
                </table> 
         </div>  
   </div>      
-     
  </body>
  </html>

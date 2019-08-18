@@ -1,11 +1,14 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.entity.Product;
 import com.lti.entity.Retailer;
 
 @Repository
@@ -25,6 +28,13 @@ public class RetailerDao {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+	
+	public List<Product> displayProductByRetailerId(int retailerId){
+		String query = "select p from Product p where p.retailer.retailerId =:retailerId";
+		Query q = entityManager.createQuery(query);
+		q.setParameter("retailerId", retailerId);
+		return q.getResultList();
 	}
 
 }
