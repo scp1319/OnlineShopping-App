@@ -83,6 +83,15 @@ form {border: 3px solid #f1f1f1;}
     opacity: 5;
   }
   
+   .cart-align{
+      margin-top: 32px;	 
+      color: white;
+      text-align: center;
+      padding: 0px 10px;
+      text-decoration: none;
+      float: right;
+    }
+  
   
   .reg{
     

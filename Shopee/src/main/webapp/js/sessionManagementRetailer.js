@@ -1,7 +1,7 @@
 $(function() {
 		$("#logoutRetailer").hide();
-		var adminEmail = sessionStorage.getItem("retailerEmail");
-		var adminId = sessionStorage.getItem("retailerId");
+		var retailerEmail = sessionStorage.getItem("retailerEmail");
+		var retailerId = sessionStorage.getItem("retailerId");
 		
 		if (adminEmail != null) {
 			$("#userEmail").append(userEmail);
