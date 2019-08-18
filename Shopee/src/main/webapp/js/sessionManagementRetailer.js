@@ -3,10 +3,8 @@ $(function() {
 		var retailerEmail = sessionStorage.getItem("retailerEmail");
 		var retailerId = sessionStorage.getItem("retailerId");
 		
-		if (adminEmail != null) {
-			$("#userEmail").append(userEmail);
+		if (retailerEmail != null) {
+			$("#retailerEmail").append(retailerEmail);
 			$("#logoutRetailer").show();
-			$("#loginRetailer").hide();
-			$("#register").hide();
 		}
 	});

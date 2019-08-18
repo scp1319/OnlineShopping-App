@@ -2,13 +2,12 @@
 <html >
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/stylelog	in.css">
+    <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
     <title>Retailer Profile</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script type="text/javascript" src="js/sessionManagementRetailer.js"></script>
     <script>
     $(function() {
-		
 			var retailerId = sessionStorage.getItem("retailerId");
 			$.ajax({
 				url : 'displayProductByRetailerId.lti?retailerId=' + retailerId,
@@ -35,7 +34,7 @@
 				</div></li>
 			
 				<a id="logout" class="cart-align" href="logoutRetailer.html">Logout</a> 
-				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
+				<a id="retailerEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>
 	</div>
