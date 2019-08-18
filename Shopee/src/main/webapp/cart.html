@@ -47,10 +47,10 @@ $(function(){
                             +"<div id='align'>"
                             +"<p><h4>Product Name"+response.name+"</h4></p>"
                             +"<p>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span></p><p>"
-                            +"<button class='buy'  id='placeOrder' type='submit'>Place Order</button>"
-                            +"<button class='buy'  id='deleteBtn' type='submit'>Delete</button>");
+                            +"<button class='buy1'  id='placeOrder' type='submit'>Place Order</button>"
+                            +"<button class='buy2'  id='deleteBtn' type='button'>Delete</button>");
     
-                            $("#placeOrder").on("click","", function(){
+                            $("#placeOrder").on("click","buy1", function(){
                                 var selectedProductId = response.id;
                                 $.ajax({
                                     url : 'placeItemToOrder.lti?itemId='+itemId,

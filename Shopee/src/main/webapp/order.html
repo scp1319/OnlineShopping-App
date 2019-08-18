@@ -7,38 +7,41 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="js/sessionManagement.js"></script>
 <script>
-$(function(){
-	var userId = sessionStorage.getItem("userId");
-	var cartId = sessionStorage.getItem("cartId");
-	if (userId != null) {
-		$.ajax({
-			url : 'getOrderList.lti?userId='+userId,
-			method : 'GET',
-			contentType : 'application/json',
-			success : function(response) {
-				alert(JSON.stringify(response));
-                response.forEach(function(myOrder){
-                    var orderId = myOrder.orderId;
-                    $.ajax({
-                        url : 'getProductInOrder.lti?orderId='+orderId,
-                        method : 'GET',
-                        contentType : 'application/json',
-                        success : function(response) {
-                            alert(JSON.stringify(response));
-                        }
-                    })
-    
-                })
-        
-			}
-		})		
-	}
-	else{
-		alert("You need to Login!!");
-		window.location.href = "login.html";
-	}	
-})
+	$(function() {
+		var userId = sessionStorage.getItem("userId");
+		var cartId = sessionStorage.getItem("cartId");
+		if (userId != null) {
+			$.ajax({
+				url : 'getOrderList.lti?userId=' + userId,
+				method : 'GET',
+				contentType : 'application/json',
+				success : function(response) {
+					//alert(JSON.stringify(response));
+					response.forEach(function(myOrder) {
+						var orderId = myOrder.orderId;
+						$.ajax({
+							url : 'getProductInOrder.lti?orderId=' + orderId,
+							method : 'GET',
+							contentType : 'application/json',
+							success : function(response) {
+								//alert(JSON.stringify(response));
+								$("#border").append(" <div id='img-desc'>"
+								+"<img id='img-align' src='img/mobile.jpg'></img>"
+								+"<div id='align'><p><h4>"+response.name+"</h4></p>"
+								+"<p>Description: "+response.description+"</p>"
+								+"<div>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span></div></div></div>");
+							}
+						})
 
+					})
+
+				}
+			})
+		} else {
+			alert("You need to Login!!");
+			window.location.href = "login.html";
+		}
+	})
 </script>
 
 </head>
@@ -67,53 +70,11 @@ $(function(){
 
 	<div class="header">Order Details</div>
 	<div>
-		<form class="form-order" id="border">
-			<div id="img-desc">
-				<img id="img-align" src="img/mobile.jpg"></img>
-				<div id="align">
-					<p>
-					<h4>Product Name</h4>
-					</p>
-					<p>Description: This product is...</p>
-					<div>
-						Price <span class="currencyINR" id="price">Rs.499</span>
+		<form class="form-order" id="border"></form>
+	</div>
 
-					</div>
-				</div>
-			</div>
-	</div>
-	<div id="border">
-		<div id="img-desc">
-			<img id="img-align" src="img/mobile.jpg"></img>
-			<div id="align">
-				<p>
-				<h4>Product Name</h4>
-				</p>
-				<p>Description: This product is...</p>
-				<div>
-					Price <span class="currencyINR" id="price">Rs.499</span>
 
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="border">
-		<div id="img-desc">
-			<img id="img-align" src="img/mobile.jpg"></img>
-			<div id="align">
-				<p>
-				<h4>Product Name</h4>
-				</p>
-				<p>Description: This product is...</p>
-				<div>
-					Price <span class="currencyINR" id="price">Rs.499</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="form-container" id="myform">
-		<button formaction="home.html" type="submit" class="btn">home</button>
-	</div>
-	</form>
+
+
 </body>
 </html>

@@ -33,11 +33,13 @@ public class OrderService{
         Order order = new Order();
         order.setProduct(product);
         order.setStatus("In Transit");
+        
         order.setPaymentMode("COD");
         order.setDateAndTime(LocalDateTime.now());
         product.setStock(product.getStock() - 1);
         cart.setTotal(cart.getTotal()-item.getProduct().getPrice()*item.getQuantity());
         dao.save(order);
+        System.out.print(order.getProduct());
         dao.delete(item);   
     }
 

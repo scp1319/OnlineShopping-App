@@ -22,6 +22,7 @@ public class Order {
 	private int orderId;
      
     private String status;
+    @Column(name="PAYMENT_MODE")
     private String paymentMode;
     @Column(name="DATETIME")
     private LocalDateTime dateAndTime;
