@@ -3,13 +3,10 @@ package com.lti.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.lti.dao.GenericDao;
 import com.lti.dao.RetailerDao;
-import com.lti.entity.Cart;
 import com.lti.entity.Category;
-import com.lti.entity.Item;
 import com.lti.entity.Product;
 import com.lti.entity.Retailer;
 @Service
@@ -40,6 +37,20 @@ public class RetailerService {
 	@Transactional
 	public Retailer retailerLogin(String email, String password) {
 		return retailerDao.loginValidation(email, password);
+	}
+	@Transactional
+	public boolean changePassword(int retailerId, String password,String newpassword) {
+		Retailer retailer=dao.fetchById(Retailer.class, retailerId);
+		if(retailer.getPassword().equals(password))
+		{
+			retailer.setPassword(newpassword);
+			dao.save(retailer);
+			return true;
+		}
+		else {
+			return false;
+		}
+	
 	}
 	
 }

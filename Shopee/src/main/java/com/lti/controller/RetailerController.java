@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.ChangeRetailerPasswordInfo;
 import com.lti.dto.Credential;
 import com.lti.dto.ProductInfo;
 import com.lti.entity.Category;
@@ -52,5 +53,10 @@ public class RetailerController {
 	@PostMapping("/RetailerLogin.lti")
 	public Retailer loginValidation(@RequestBody Credential credentials) {
 		return retailerService.retailerLogin(credentials.getEmail(), credentials.getPassword());
+	}
+	@PostMapping("/changeRetailerPassword.lti")
+	public boolean changePassword(@RequestBody ChangeRetailerPasswordInfo info)
+	{
+		return retailerService.changePassword(info.getRetailerId(), info.getPassword(), info.getNewpassword());
 	}
 }
