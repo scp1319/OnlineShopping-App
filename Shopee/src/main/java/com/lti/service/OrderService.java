@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.CartDao;
 import com.lti.dao.GenericDao;
+import com.lti.dao.OrderDao;
 import com.lti.entity.Cart;
 import com.lti.entity.Item;
 import com.lti.entity.Order;
@@ -19,6 +20,9 @@ public class OrderService{
 	
     @Autowired
 	private GenericDao dao;
+    
+    @Autowired
+   	private OrderDao orderDao;
 
     @Transactional
     public void placeItemToOrder(int itemId){
@@ -39,8 +43,8 @@ public class OrderService{
 
 
     @Transactional
-    public List<Order> getOrderList(){
-        return dao.fetchAll(Order.class);
+    public List<Order> getOrderList(int userId){
+        return orderDao.getOrderList(userId);
     }
 
     @Transactional

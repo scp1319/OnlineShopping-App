@@ -17,7 +17,7 @@ $(function() {
 			data : JSON.stringify(userId),
 			success : function(response) {
 				var cartId = response.cartId;
-				alert(cartId)
+				//alert(cartId)
 				sessionStorage.setItem("cartId", cartId);
 			}
 		})

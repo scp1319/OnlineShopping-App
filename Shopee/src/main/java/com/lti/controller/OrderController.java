@@ -27,8 +27,8 @@ public class OrderController {
     }
 
     @GetMapping("/getOrderList.lti")
-    public List<Order> displayOrder(){
-        return orderService.getOrderList();
+    public List<Order> displayOrder(@RequestParam("userId") int userId){
+        return orderService.getOrderList(userId);
     }
 
     @GetMapping("/getProductInOrder.lti")

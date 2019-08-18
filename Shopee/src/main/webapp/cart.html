@@ -18,9 +18,8 @@ $(function(){
 			contentType : 'application/json',
 			success : function(response) {
 				sessionStorage.setItem("cartTotal",response.total);
-				alert(response.total);
-				$("#total").append("<br> <b id='sub-total'>Subtotal:<span class='currencyINR' id='price'> Rs."+response.total+"</span></b><br>"
-				+"<button id='sub-btn' class='buy'>Proceed to BUY</button>");
+				//alert(response.total);
+				$("#total").append("<br> <b id='sub-total'>Subtotal:<span class='currencyINR' id='price'> Rs."+response.total+"</span></b><br>");
 			}
 		})
 		
