@@ -10,10 +10,8 @@
 </script>
 
 <script>
-var retailerId = sessionStorage.getItem("retailerId");
 	$(function() {
-		$.ajax({
-			url : 'dispCategory.lti',
+$.ajax({			url : 'dispCategory.lti',
 			method : 'GET',
 			contentType : 'application/json',
 			success : function(response) {
@@ -38,7 +36,7 @@ var retailerId = sessionStorage.getItem("retailerId");
 			formData.append("description", $("#description").val());
 			formData.append("price", $("#price").val());
 			formData.append("stock", $("#stock").val());
-			formData.append("retailerId", retailerId);
+			formData.append("retailerId", $("#retailerId").val());
 			formData.append("categoryId", $("#catgsel").val());
 			$.ajax({
 				url : 'addProductInfo.lti',
@@ -73,7 +71,9 @@ var retailerId = sessionStorage.getItem("retailerId");
 				type="number" placeholder="Enter Price" id="price" required>
 
 			<label for="Stock"><b> Stock</b></label> <input type="number"
-				placeholder="Enter Stock" id="stock" required>  <label
+				placeholder="Enter Stock" id="stock" required> <label
+				for="Retailer Id"><b>Retailer Id</b></label> <input type="number"
+				placeholder="Enter Retailer Id" id="retailerId" required> <label
 				for="image"><b>Upload</b></label> <input type="file" id="upload"
 				required><br> <br>
 			<div id="assignCatgToProductFrm">
@@ -86,3 +86,4 @@ var retailerId = sessionStorage.getItem("retailerId");
 	</div>
 </body>
 </html>
+
