@@ -36,11 +36,11 @@ public class RetailerController {
 	@PostMapping("/addProductInfo.lti")
 	public void addProductInfo(ProductInfo info) {
 		String path="D:\\new\\";
-		String imagePath =info.getDocument().getOriginalFilename(); 
-		String storagePath = path+imagePath; 
+		String filename =info.getDocument().getOriginalFilename(); 
+		String imagePath = path+filename; 
 		try 
 		{
-		info.getDocument().transferTo(new File(storagePath));
+		info.getDocument().transferTo(new File(imagePath));
 		  } 
 		 
 		catch (IOException e) 
