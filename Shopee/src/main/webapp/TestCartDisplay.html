@@ -3,15 +3,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(function() {
 	$("#dispCart").click(function(evt) {
 		evt.preventDefault();
 		var cartId = $("#cartId").val();
 		$.ajax({
-			url : 'dispCart.lti?cartId='+cartId,
+			url : 'displayCart.lti?cartId='+cartId,
 			method : 'GET',
 			contentType : 'application/json',
 			success : function(response) {

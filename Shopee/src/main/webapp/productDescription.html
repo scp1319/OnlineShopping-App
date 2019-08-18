@@ -6,31 +6,66 @@
 <title>Product Description</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="js/sessionManagement.js"></script>
+
 <script>
+$(function() {
+	var productId = sessionStorage.getItem("selectedProductId");
+	
+	//alert(productId);
+	$
+			.ajax({
+				url : 'displayProductById.lti?productId=' + productId,
+				method : 'GET',
+				success : function(response) {
+					$("#productDescription")
+							.append(
+									"<div class='column'><img id='img-prod-desc' src='img/mobile.jpg' alt='Snow'></div><div>"
+											+ "<h4>Product Name: "
+											+ response.name
+											+ " </h4>"
+											+ "<div class='desc-align'>Product Description:"
+											+ response.description
+											+ "</div>"
+											+ "<div>Price <span class='currencyINR' id='price'>Rs."
+											+ response.price
+											+ "</span>"
+											+ "</div>"
+										);
+					$("#productDescription").append('<button type="submit">Add to cart</button>')
+				}
+			})
+})
+
 	$(function() {
-		var productId = sessionStorage.getItem("selectedProductId");
-		//alert(productId);
-		$
-				.ajax({
-					url : 'displayProductById.lti?productId=' + productId,
-					method : 'GET',
-					success : function(response) {
-						$("#productDescription")
-								.append(
-										"<div class='column'><img id='img-prod-desc' src='img/mobile.jpg' alt='Snow'></div><div>"
-												+ "<h4>Product Name: "
-												+ response.name
-												+ " </h4>"
-												+ "<div class='desc-align'>Product Description:"
-												+ response.description
-												+ "</div>"
-												+ "<div>Price <span class='currencyINR' id='price'>Rs."
-												+ response.price
-												+ "</span>"
-												+ "<div>"
-												+ "<button class='buy'>Add to cart</button><button class='buy'>Place Order</button></div></div>");
-					}
-				})
+		$("#productDescription").on("click","",function(evt) {
+			evt.preventDefault();
+			var productId = sessionStorage.getItem("selectedProductId");
+			var userId = sessionStorage.getItem("userId");
+			alert(userId);
+			if (userId != null) {
+	
+			} else {
+				alert("You need to Login!!");
+				window.location.href = "login.html";
+			}
+			var quantity = 1;
+			var cartId = sessionStorage.getItem("cartId");
+			var obj = {
+				cartId : cartId,
+				productId : productId,
+				quantity : quantity
+			}
+			$.ajax({
+				url : 'addToCart.lti',
+				method : 'POST',
+				data : JSON.stringify(obj),
+				contentType : 'application/json',
+				success : function(response) {
+					alert("Product added to Cart");
+					location.reload();
+				}
+			})
+		})
 	})
 </script>
 </head>
@@ -59,6 +94,8 @@
 	<div class="header">Product Description</div>
 
 	<div id="productDescription"></div>
+	<div id="btn"></div>
+	
 	</div>
 </body>
 </html>

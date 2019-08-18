@@ -1,48 +1,105 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-    <title>Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/sessionManagement.js"></script>
+
+<script>
+$(function(){
+	var userId = sessionStorage.getItem("userId");
+	var cartId = sessionStorage.getItem("cartId");
+	if (userId != null) {
+		$.ajax({
+			url : 'displayCart.lti?cartId='+cartId,
+			method : 'GET',
+			contentType : 'application/json',
+			success : function(response) {
+				alert(JSON.stringify(response));
+				//sessionStorage.setItem("itemId",response.itemId);
+			}
+		})
+		
+		var itemId = sessionStorage.getItem("itemId");
+		$.ajax({
+			url : 'displayCartItemName.lti?itemId='+itemId,
+			method : 'GET',
+			contentType : 'application/json',
+			success : function(response) {
+				alert(JSON.stringify(response));
+				//sessionStorage.setItem("itemId",response.itemId);
+			}
+		})
+		
+	}
+	else{
+		alert("You need to Login!!");
+		window.location.href = "login.html";
+	}
+	
+})
+
+
+
+</script>
+
+
+<title>Cart</title>
 </head>
-<body> 
-  <div>          
-    <ul>
-            <li><div class="logo"><img class="logo-size" src="img/logo.jpg">Shoppe
-            </div></li>
-      <li><a class="cart-align"  href="products.html" >Products</a></li>
-      <li><a class="cart-align"  href="#">Compare</a></li>
-      <li><a class="cart-align"  href="cart.html">Cart</a></li>
-      <li><a class="cart-align"  href="userprofile.html">User Profile</a></li>
-      <div>
-        <input  id="search" type="text" placeholder="What are you lookign for?.." name="search">
-        <button type="submit">Search</button>
-        <a class="cart-align" href="login.html">Register here!</a>  
-        <a class="cart-align" href="register.html">Login</a> 
-      </div>  
-    </ul>
-</div> 
-        
-        <div class="header" >Welcome to your cart!</div>
-        <div>
-        <div >   
-                <form class="form-order" id="border" >
-                        <div id="img-desc">
-                            <img  id="img-align" src="img/mobile.jpg"></img> 
-                            <div id="align">
-                                    <p><h4>Product Name</h4></p>
-                                    <p>Price <span class="currencyINR"id="price">Rs.499</span></p>
-                                    Qty: <select> <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>    
-                              </select>    
-                             <a href="">Delete</a> 
-                            </div>  
-                        </div>
-                    </div>  
-                    <button class="buy">Proceed to BUY</button>
-                </div>
+<body>
+	<div>
+		<ul>
+			<li><div class="logo">
+					<img class="logo-size" src="img/logo.jpg"><a href="home.html">Shoppe</a>
+				</div></li>
+			<li><a class="cart-align" href="products.html">Products</a></li>
+			<li><a class="cart-align" href="#">Compare</a></li>
+			<li><a class="cart-align" href="cart.html">Cart</a></li>
+			<li><a class="cart-align" href="userprofile.html">User
+					Profile</a></li>
+			<div>
+				<input id="search" type="text"
+					placeholder="What are you lookign for?.." name="search">
+				<button type="submit">Search</button>
+				<a id="login" class="cart-align" href="login.html">Login</a> <a
+					id="register" class="cart-align" href="register.html">Register</a>
+				<a id="logout" class="cart-align" href="logout.html">Logout</a> <a
+					id="userEmail" class="cart-align" href="#" style="color: white"></a>
+			</div>
+		</ul>
+	</div>
+
+	<div class="header">Welcome to your cart!</div>
+	<div id="cartItemList">
+<!--  -->
+		<div id='sub-float'>
+			<div id='sub-width'>
+				<form class='form-order' id='border'>
+					<div id='img-desc'>
+						<img id='img-align' src='mobile.jpg'></img>
+						<div id='align'>
+							<p>
+							<h4>Product Name</h4>
+							</p>
+							<p>
+								Price <span class='currencyINR' id='price'>Rs.499</span>
+							</p>
+							<p>
+								<button class='buy' id='placeOrder'>Place Order</button>
+							</p>
+							<a href='' id='deleteBtn'>Delete</a>
+						</div>
+					</div>
+			</div>
+			</form>
+		</div>
+<!--  -->
+	</div>
+	<div id="total">
+			<br> <b id="sub-total">Subtotal:<span class="currencyINR"
+				id="price"> Rs.499</span></b><br>
+			<button id="sub-btn" class="buy">Proceed to BUY</button>
+		</div>
 </body>
-</html>        
+</html>

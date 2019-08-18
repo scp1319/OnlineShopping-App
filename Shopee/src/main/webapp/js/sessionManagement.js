@@ -8,6 +8,18 @@ $(function() {
 			$("#logout").show();
 			$("#login").hide();
 			$("#register").hide();
-		}
 		
+		
+		$.ajax({
+			url : 'fetchCartByUserId.lti?userId=' + userId,
+			method : 'GET',
+			contentType : 'application/json',
+			data : JSON.stringify(userId),
+			success : function(response) {
+				var cartId = response.cartId;
+				alert(cartId)
+				sessionStorage.setItem("cartId", cartId);
+			}
+		})
+		}
 	});
