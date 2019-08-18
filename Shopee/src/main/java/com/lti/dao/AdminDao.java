@@ -34,8 +34,8 @@ public class AdminDao {
 		String query = "select r from Retailer r where r.admin.adminId =:aid";
 		Query q = entityManager.createQuery(query);
 		q.setParameter("aid",adminId);
-		List <Retailer> retailer =  q.getResultList();
-		return retailer;
+		return q.getResultList();
+		
 		
 	}
 

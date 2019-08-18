@@ -4,8 +4,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
     <title>Admin Profile</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="js/sessionManagementAdmin.js"></script>
     <script>
-   
+    $(function() {
+		
+			var adminId = sessionStorage.getItem("adminId");
+			$.ajax({
+				url : 'DisplayRetailer.lti?adminId=' + adminId,
+				method : 'GET',
+				contentType : 'application/json',
+				success : function(response) {
+					//alert(JSON.stringify(response));
+					response.forEach(function(retailer) {	
+					$("#table").append(" <tr><td>"+retailer.retailerId+"</td>"
+					           +"<td>"+retailer.name+"</td>"
+					           +"<td>"+retailer.email+"</td>"
+					           +"<td><button id='del' formaction='#' >Delete</button></td></tr> ");
+				})
+				}
+			})
+
+	})
 </script>
 </head>
 <body>    
@@ -14,10 +34,10 @@
 			<li><div class="logo">
 					<img class="logo-size" src="img/logo.jpg"><a href="home.html">Shoppe</a>
 				</div></li>
-			
-				<a id="login" class="cart-align" href="login.html">Login</a> 
-				<a id="logout" class="cart-align" href="logout.html">Logout</a> 
-				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
+				<a  class="cart-align" href="AddRetailer.html" >Add Retailer</a> 
+				<a id="loginAdmin" class="cart-align" href="loginAdmin.html" >Login</a> 
+				<a id="logoutAdmin" class="cart-align" href="logoutAdmin.html">Logout</a> 
+				<a  id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>
 	</div>
@@ -29,70 +49,5 @@
           <th>Retailer Email</th>
           <th>Delete Retailer</th>
         </tr>  
-         <tr>
-           <td>101</td>
-           <td>Ram</td>
-           <td>ram@gmail.com</td>
-           <td>
-                <form>  
-                 <button id="del" formaction="#" >Delete</button>  
-                </form> 
-           </td>
-         </tr>
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-                <td>
-                     <form>  
-                      <button id="del" formaction="#" >Delete</button>  
-                     </form> 
-                </td>
-          </tr> 
-          <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-                <td>
-                     <form>  
-                      <button id="del" formaction="#" >Delete</button>  
-                     </form> 
-                </td>
-            </tr> 
-            <tr>
-                <td></td>
-                <td></td> 
-                <td></td>
-                    <td>
-                         <form>  
-                          <button id="del" formaction="#" >Delete</button>  
-                         </form> 
-                    </td>
-              </tr> 
-              <tr>
-                  <td></td>
-                  <td></td> 
-                  <td></td>
-                    <td>
-                         <form>  
-                          <button id="del" formaction="#" >Delete</button>  
-                         </form> 
-                    </td>
-                </tr> 
-                <tr>
-                    <td></td>
-                    <td></td> 
-                    <td></td>
-                        <td>
-                             <form>  
-                              <button id="del" formaction="#" >Delete</button>  
-                             </form> 
-                        </td>
-                  </tr> 
-                  <tr>
-                      <td colspan="5"> <form>  
-                        <button id="add" class="form-container, btn" formaction="addretailer.html" >Add Retailer</button>  
-                     </form></td> 
-                    </tr>    
        </table> 
 </div>  
