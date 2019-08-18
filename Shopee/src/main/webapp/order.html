@@ -25,11 +25,12 @@
 							contentType : 'application/json',
 							success : function(response) {
 								//alert(JSON.stringify(response));
-								$("#border").append(" <div id='img-desc'>"
+								$("#orderList").append("<form class='form-order' id='border'><div id='img-desc'>"
 								+"<img id='img-align' src='img/mobile.jpg'></img>"
 								+"<div id='align'><p><h4>"+response.name+"</h4></p>"
-								+"<p>Description: "+response.description+"</p>"
-								+"<div>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span></div></div></div>");
+								+"<p>Status: "+myOrder.status+"</p>"
+								+"<div><p>Payment mode: "+myOrder.paymentMode+"</p></div>"
+								+"<div>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span></div></div></div></form>");
 							}
 						})
 
@@ -69,8 +70,9 @@
 	</div>
 
 	<div class="header">Order Details</div>
-	<div>
-		<form class="form-order" id="border"></form>
+	<div id="orderList">
+		
+		
 	</div>
 
 
