@@ -1,28 +1,31 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.entity.User;
 import com.lti.dto.CartDetails;
 import com.lti.entity.*;
 
+
 @Repository
-public class CartDao {
+public class CartDao{
 
 	@PersistenceContext
 	protected EntityManager entityManager;
 
-	public Cart displayCart(int cartId) {
-		String query = "select c from Cart c join fetch c.items where c.cartId=:id";
+	public List<Item> displayCart(int cartId) {
+		String query = "select i from Item i  where i.cart.cartId=:cartId";
 		Query q = entityManager.createQuery(query);
-		q.setParameter("id", cartId);
-		return (Cart) q.getSingleResult();
+		q.setParameter("cartId", cartId);
+		return q.getResultList();
 	}
 	
+
 	
 	public Cart fetchCartByUserId(int userId) {
 		String query = "select c from Cart c where c.user.id=:userId";
@@ -30,7 +33,10 @@ public class CartDao {
 		q.setParameter("userId", userId);
 		Cart c=(Cart)q.getSingleResult();
 		System.out.println("Cart Id "+c.getCartId());
-		
 		return (Cart) q.getSingleResult();
 	}
+	
+	
+	
+	
 }

@@ -8,28 +8,7 @@
 <script type="text/javascript" src="js/priceFilter.js"></script>
 <script type="text/javascript" src="js/sessionManagement.js"></script>
 
-<script>
-	$(function() { 
-		var userId = sessionStorage.getItem("userId");
-		alert(userId);
-		if (userId!=null){
-			$.ajax({
-				url : 'fetchCartByUserId.lti?userId='+userId,
-				method : 'GET',
-				contentType : 'application/json',
-				data : JSON.stringify(userId),
-				success : function(response) {
-					var cartId = response.cartId;
-					sessionStorage.setItem("cartId",cartId);
-				}
-			})
-		}
-		else{
-			alert("you need to login");
-			//window.location.href = "login.html";
-		}
-	})
-</script>
+
 </head>
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <body>
@@ -42,8 +21,7 @@
 			<li><a class="cart-align" href="products.html">Products</a></li>
 			<li><a class="cart-align" href="#">Compare</a></li>
 			<li><a class="cart-align" href="cart.html">Cart</a></li>
-			<li><a class="cart-align" href="userprofile.html">User
-					Profile</a></li>
+			<li><a class="cart-align" href="userprofile.html">User Profile</a></li>
 			<div>
 				<input id="search" type="text"
 					placeholder="What are you lookign for?.." name="search">
