@@ -8,13 +8,16 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 	$(function() {
+		var adminId = sessionStorage.getItem("adminId");
+		var adminEmail = sessionStorage.getItem("adminEmail");
+		
 		$("#addRetailer").click(function(evt) {
 			evt.preventDefault();
 			var obj = {
 				name : $("#name").val(),
 				email : $("#email").val(),
 				password : $("#password").val(),
-				adminId : $("#adminid").val(),
+				adminId : adminId
 			}
 			$.ajax({
 				url : 'addRetailer.lti',
@@ -56,11 +59,10 @@
 				<label for="Default Password"><b>Retailer's Default
 						Password</b></label> <input type="password"
 					placeholder="Enter default password" name="password" id="password"
-					required> <label for="Admin Id"><b>Admin
-						Assigned to Retailer</b></label> <input type="number"
-					placeholder="Enter Admin Id" name="adminid" id="adminid" required>
+					required> 
 
 				<button formaction="#" type="submit" class="btn" id="addRetailer">Done</button>
+				<a href="adminprofile.html">Back</a>
 			</form>
 		</div>
 </body>

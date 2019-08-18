@@ -5,11 +5,22 @@
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <title>Admin Profile</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="js/sessionManagementAdmin.js"></script>
+
 <script>
 	$(function() {
 
 		var adminId = sessionStorage.getItem("adminId");
+		var adminEmail = sessionStorage.getItem("adminEmail");
+		
+		if (adminId  != null) {
+			$("#adminEmail").append(adminEmail);
+			$("#logoutAdmin").show();
+			
+		}
+		else{
+			alert("you need to login!!");
+			window.location.href = "loginAdmin.html";
+		}
 		$
 				.ajax({
 					url : 'DisplayRetailer.lti?adminId=' + adminId,
@@ -45,6 +56,7 @@
 					<img class="logo-size" src="img/logo.jpg"><a href="home.html">Shoppe</a>
 				</div></li>
 			<a class="cart-align" href="AddRetailer.html">Add Retailer</a>
+			
 			<a id="logoutAdmin" class="cart-align" href="logoutAdmin.html">Logout</a>
 			<a id="adminEmail" class="cart-align" href="#" style="color: white"></a>
 	</div>

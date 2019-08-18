@@ -7,4 +7,7 @@ $(function() {
 			$("#retailerEmail").append(retailerEmail);
 			$("#logoutRetailer").show();
 		}
+		else{
+			window.location.href = "retailerLogin.html";
+		}
 	});
