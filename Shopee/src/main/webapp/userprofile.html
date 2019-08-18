@@ -7,17 +7,26 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="js/sessionManagement.js"></script>
 <script>
-
+$(function(){
+	var userId = sessionStorage.getItem("userId");
+	if (userId != null) {
+		
+	}
+	else{
+		alert("You need to Login!!");
+		window.location.href = "login.html";
+	}	
+})
 </script>
 </head>
 <body>
-	<div>
+<div>
 		<ul>
 			<li><div class="logo">
 					<img class="logo-size" src="img/logo.jpg"><a href="home.html">Shoppe</a>
 				</div></li>
 			<li><a class="cart-align" href="products.html">Products</a></li>
-			<li><a class="cart-align" href="#">Compare</a></li>
+			<li><a class="cart-align" href="order.html">Order</a></li>
 			<li><a class="cart-align" href="cart.html">Cart</a></li>
 			<li><a class="cart-align" href="userprofile.html">User
 					Profile</a></li>
@@ -32,6 +41,7 @@
 			</div>
 		</ul>
 	</div>
+
 	<div class="header">User Profile</div>
 	<div class="form-container" id="myform">
 		<form>
