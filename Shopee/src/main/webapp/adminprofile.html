@@ -1,53 +1,63 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-    <title>Admin Profile</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script type="text/javascript" src="js/sessionManagementAdmin.js"></script>
-    <script>
-    $(function() {
-		
-			var adminId = sessionStorage.getItem("adminId");
-			$.ajax({
-				url : 'DisplayRetailer.lti?adminId=' + adminId,
-				method : 'GET',
-				contentType : 'application/json',
-				success : function(response) {
-					//alert(JSON.stringify(response));
-					response.forEach(function(retailer) {	
-					$("#table").append(" <tr><td>"+retailer.retailerId+"</td>"
-					           +"<td>"+retailer.name+"</td>"
-					           +"<td>"+retailer.email+"</td>"
-					           +"<td><button id='del' formaction='#' >Delete</button></td></tr> ");
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<title>Admin Profile</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/sessionManagementAdmin.js"></script>
+<script>
+	$(function() {
+
+		var adminId = sessionStorage.getItem("adminId");
+		$
+				.ajax({
+					url : 'DisplayRetailer.lti?adminId=' + adminId,
+					method : 'GET',
+					contentType : 'application/json',
+					success : function(response) {
+						//alert(JSON.stringify(response));
+						response
+								.forEach(function(retailer) {
+									$("#table")
+											.append(
+													" <tr><td>"
+															+ retailer.retailerId
+															+ "</td>"
+															+ "<td>"
+															+ retailer.name
+															+ "</td>"
+															+ "<td>"
+															+ retailer.email
+															+ "</td>"
+															+ "<td><button id='del' formaction='#' >Delete</button></td></tr> ");
+								})
+					}
 				})
-				}
-			})
 
 	})
 </script>
 </head>
-<body>    
-  <div>
+<body>
+	<div>
 		<ul>
 			<li><div class="logo">
 					<img class="logo-size" src="img/logo.jpg"><a href="home.html">Shoppe</a>
 				</div></li>
-				<a  class="cart-align" href="AddRetailer.html" >Add Retailer</a> 
-				<a id="loginAdmin" class="cart-align" href="loginAdmin.html" >Login</a> 
-				<a id="logoutAdmin" class="cart-align" href="logoutAdmin.html">Logout</a> 
-				<a  id="userEmail" class="cart-align" href="#" style="color: white"></a>
-			</div>
-		</ul>
+			<a class="cart-align" href="AddRetailer.html">Add Retailer</a>
+			<a id="logoutAdmin" class="cart-align" href="logoutAdmin.html">Logout</a>
+			<a id="adminEmail" class="cart-align" href="#" style="color: white"></a>
 	</div>
-  <div class="header">Admin Profile</div><div>
-    <table class="table-align" id="table">
-        <tr>
-          <th>Retailer Id</th>
-          <th>Retailer Name</th>
-          <th>Retailer Email</th>
-          <th>Delete Retailer</th>
-        </tr>  
-       </table> 
-</div>  
+	</ul>
+	</div>
+	<div class="header">Admin Profile</div>
+	<div>
+		<table class="table-align" id="table">
+			<tr>
+				<th>Retailer Id</th>
+				<th>Retailer Name</th>
+				<th>Retailer Email</th>
+				<th>Delete Retailer</th>
+			</tr>
+		</table>
+	</div>
