@@ -14,9 +14,11 @@ import com.lti.entity.Product;
 
 @Service
 public class CartService {
-	@Autowired
+	
+    @Autowired
 	private GenericDao dao;
-	@Autowired
+	
+    @Autowired
 	private CartDao cartDao;
 
 	@Transactional
@@ -54,7 +56,12 @@ public class CartService {
 	@Transactional
 	public Cart fetchCartByUserId(int userId) {
 		return cartDao.fetchCartByUserId(userId);
-	}
+	}	
+	
+	@Transactional
+	public Cart fetchCartById(int cartId) {
+		return dao.fetchById(Cart.class, cartId);
+	}	
 	
 	
 }

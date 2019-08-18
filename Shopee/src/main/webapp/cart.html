@@ -11,36 +11,87 @@ $(function(){
 	var userId = sessionStorage.getItem("userId");
 	var cartId = sessionStorage.getItem("cartId");
 	if (userId != null) {
+		
+		$.ajax({
+			url: 'fetchCartById.lti?cartId='+cartId,
+			method : 'GET',
+			contentType : 'application/json',
+			success : function(response) {
+				sessionStorage.setItem("cartTotal",response.total);
+				alert(response.total);
+				$("#total").append("<br> <b id='sub-total'>Subtotal:<span class='currencyINR' id='price'> Rs."+response.total+"</span></b><br>"
+				+"<button id='sub-btn' class='buy'>Proceed to BUY</button>");
+			}
+		})
+		
 		$.ajax({
 			url : 'displayCart.lti?cartId='+cartId,
 			method : 'GET',
 			contentType : 'application/json',
 			success : function(response) {
-				alert(JSON.stringify(response));
-				//sessionStorage.setItem("itemId",response.itemId);
+				//alert(JSON.stringify(response));
+				
+                response.forEach(function(myItem){
+                    var itemId = myItem.itemId;
+                    $.ajax({
+                        url : 'displayCartItemName.lti?itemId='+itemId,
+                        method : 'GET',
+                        contentType : 'application/json',
+                        success : function(response) {
+                            //alert(JSON.stringify(response));
+                            //sessionStorage.setItem("itemId",response.itemId);
+                            $("#cartItemList").append("<div id='sub-float'>"
+                            +"<div id='sub-width'>"
+                            +"<form class='form-order' id='border'>"
+                            +"<div id='img-desc'>"
+                            +"<img id='img-align' src='img/mobile.jpg'></img>"
+                            +"<div id='align'>"
+                            +"<p><h4>Product Name"+response.name+"</h4></p>"
+                            +"<p>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span></p><p>"
+                            +"<button class='buy'  id='placeOrder' type='submit'>Place Order</button>"
+                            +"<button class='buy'  id='deleteBtn' type='submit'>Delete</button>");
+    
+                            $("#placeOrder").on("click","", function(){
+                                var selectedProductId = response.id;
+                                $.ajax({
+                                    url : 'placeItemToOrder.lti?itemId='+itemId,
+                                    method : 'GET',
+                                    contentType : 'application/json',
+                                    success : function(response) {
+                                        alert("Item added to order");
+                                        location.reload();
+                                    }
+                                })
+                            })
+                            
+                        $("#deleteBtn").on("click","", function(){
+                        var selectedProductId = $(this).attr("selectedProductId");
+                        //alert("selectedProductId is "+selectedProductId);
+                        sessionStorage.setItem("selectedProductId", selectedProductId);
+                        //window.location.href="productDescription.html";
+                        $.ajax({
+                            url : 'deleteFromCart.lti?itemId='+itemId,
+                            method : 'GET',
+                            contentType : 'application/json',
+                            success : function(response) {
+                                alert("Item deleted from cart");
+                                location.reload();
+                            }
+                        })
+                    })
+                           
+                            $("#cartItemList").append("</div></div></div></form></div>");
+                        }
+                    })
+                })
 			}
-		})
-		
-		var itemId = sessionStorage.getItem("itemId");
-		$.ajax({
-			url : 'displayCartItemName.lti?itemId='+itemId,
-			method : 'GET',
-			contentType : 'application/json',
-			success : function(response) {
-				alert(JSON.stringify(response));
-				//sessionStorage.setItem("itemId",response.itemId);
-			}
-		})
-		
+		})		
 	}
 	else{
 		alert("You need to Login!!");
 		window.location.href = "login.html";
-	}
-	
+	}	
 })
-
-
 
 </script>
 
@@ -71,35 +122,12 @@ $(function(){
 	</div>
 
 	<div class="header">Welcome to your cart!</div>
-	<div id="cartItemList">
+	<div class="outline"><div id="total"></div></div>
+	<div id="cartItemList" style=" padding-left:25%;">
 <!--  -->
-		<div id='sub-float'>
-			<div id='sub-width'>
-				<form class='form-order' id='border'>
-					<div id='img-desc'>
-						<img id='img-align' src='mobile.jpg'></img>
-						<div id='align'>
-							<p>
-							<h4>Product Name</h4>
-							</p>
-							<p>
-								Price <span class='currencyINR' id='price'>Rs.499</span>
-							</p>
-							<p>
-								<button class='buy' id='placeOrder'>Place Order</button>
-							</p>
-							<a href='' id='deleteBtn'>Delete</a>
-						</div>
-					</div>
-			</div>
-			</form>
-		</div>
+		
 <!--  -->
 	</div>
-	<div id="total">
-			<br> <b id="sub-total">Subtotal:<span class="currencyINR"
-				id="price"> Rs.499</span></b><br>
-			<button id="sub-btn" class="buy">Proceed to BUY</button>
-		</div>
+	
 </body>
 </html>

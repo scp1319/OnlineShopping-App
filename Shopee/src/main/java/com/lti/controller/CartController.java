@@ -37,8 +37,6 @@ public class CartController {
 		return cartService.displayCartItemName(itemId);
 	}
 	
-	
-	
 	@DeleteMapping("/deleteFromCart.lti")
 	public void deleteFromCart(@RequestParam("itemId") int itemId) {
 		cartService.removeItemFromCart(itemId);
@@ -47,6 +45,11 @@ public class CartController {
 	@GetMapping("/fetchCartByUserId.lti")
 	public Cart fetchCartByUserId(@RequestParam("userId") int userId) {
 		return cartService.fetchCartByUserId(userId);
+	} 
+	
+	@GetMapping("/fetchCartById.lti")
+	public Cart fetchCartById(@RequestParam("cartId") int cartId) {
+		return cartService.fetchCartById(cartId);
 	}
 	
 }
