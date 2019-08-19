@@ -28,10 +28,9 @@
 					contentType : 'application/json',
 					success : function(response) {
 						//alert(JSON.stringify(response));
-						response
-								.forEach(function(retailer) {
-									$("#table")
-											.append(
+						response.forEach(function(retailer) {
+									var retailerId = retailer.retailerId;
+									$("#table").append(
 													" <tr><td>"
 															+ retailer.retailerId
 															+ "</td>"
@@ -41,7 +40,19 @@
 															+ "<td>"
 															+ retailer.email
 															+ "</td>"
-															+ "<td><button id='del' formaction='#' >Delete</button></td></tr> ");
+															+ "<td><button id='del' formaction='#' type='submit'>Delete</button></td></tr> ");
+									
+									$("#del").on("click","",function(evt) {
+										evt.preventDefault();
+										$.ajax({
+											method : 'delete',
+											contentType : 'application/json',
+									        url : "/deleteRetailer.lti?retailerId="+retailerId,
+									        success: function (response) {    
+									        	alert(" retailerId retailer deleted");
+									        }
+										})
+									})
 								})
 					}
 				})
