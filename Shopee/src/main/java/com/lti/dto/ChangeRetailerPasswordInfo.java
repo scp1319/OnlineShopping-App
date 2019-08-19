@@ -14,7 +14,7 @@ public void setRetailerId(int retailerId) {
 	private String newpassword;
 
 	public ChangeRetailerPasswordInfo() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getPassword() {

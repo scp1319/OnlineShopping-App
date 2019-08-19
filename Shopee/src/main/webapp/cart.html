@@ -18,7 +18,7 @@ $(function(){
 			contentType : 'application/json',
 			success : function(response) {
 				sessionStorage.setItem("cartTotal",response.total);
-				//alert(response.total);
+				
 				$("#total").append("<br> <b id='sub-total'>Subtotal:<span class='currencyINR' id='price'> Rs."+response.total+"</span></b><br>");
 			}
 		})
@@ -28,7 +28,7 @@ $(function(){
 			method : 'GET',
 			contentType : 'application/json',
 			success : function(response) {
-				//alert(JSON.stringify(response));
+			
 				
                 response.forEach(function(myItem){
                     var itemId = myItem.itemId;
@@ -38,8 +38,7 @@ $(function(){
                         contentType : 'application/json',
                         success : function(response) {
                         	copyFile(response.id);
-                            //alert(JSON.stringify(response));
-                            //sessionStorage.setItem("itemId",response.itemId);
+                            
                             $("#cartItemList").append("<div id='sub-float'>"
                             +"<div id='sub-width'>"
                             +"<form class='form-order' id='border'>"
@@ -66,9 +65,9 @@ $(function(){
                             
                         $("#deleteBtn").on("click","", function(){
                         var selectedProductId = $(this).attr("selectedProductId");
-                        //alert("selectedProductId is "+selectedProductId);
+                       
                         sessionStorage.setItem("selectedProductId", selectedProductId);
-                        //window.location.href="productDescription.html";
+                 
                         $.ajax({
                             url : 'deleteFromCart.lti?itemId='+itemId,
                             method : 'GET',

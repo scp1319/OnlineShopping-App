@@ -16,7 +16,7 @@ public class EditUserInfo {
 	private String address;
 
 	public EditUserInfo() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public String getName() {

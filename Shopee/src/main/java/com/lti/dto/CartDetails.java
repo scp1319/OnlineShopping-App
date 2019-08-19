@@ -9,7 +9,7 @@ public class CartDetails {
 	private String description;
 	
 	public CartDetails() {
-		// TODO Auto-generated constructor stub
+	
 	}
 	public int getQuantity() {
 		return quantity;

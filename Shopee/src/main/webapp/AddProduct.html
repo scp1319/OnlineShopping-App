@@ -28,7 +28,7 @@
 		$("#addProduct").click(function(evt) {
 			evt.preventDefault();
 			var retailerId = sessionStorage.getItem("retailerId");
-			//alert($("#catgsel").val());
+		
 			var formData = new FormData();
 			formData.append("document", $("#upload").get(0).files[0]);
 			formData.append("name", $("#name").val());

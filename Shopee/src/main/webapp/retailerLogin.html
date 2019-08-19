@@ -21,17 +21,13 @@
 				contentType : 'application/json',
 				data : JSON.stringify(obj),
 				success : function(response) {
-					//alert(JSON.stringify(response));
 					if (response != "") {
-						
-						//session code start
 						if (typeof (Storage) !== "undefined") {
 							sessionStorage.setItem("retailerEmail",response.email);
 							sessionStorage.setItem("retailerId",response.retailerId);
 						} else {
 							alert("Sorry, your browser does not support Web Storage...");
 						}
-						//end
 						
 						window.location.href = "retailerprofile.html";
 					} else {

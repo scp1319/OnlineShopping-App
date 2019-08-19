@@ -27,8 +27,6 @@ public class UserService {
 	public int userRegistration(User user) {
 		User updatedUser = (User) dao.save(user);
 		User u = dao.fetchById(User.class, updatedUser.getId());
-
-		// generate cart for new user
 		Cart c = new Cart();
 		c.setUser(u);
 		dao.save(c);
@@ -49,18 +47,17 @@ public class UserService {
 		u.setAddress(address);
 		dao.save(u);
 	}
+
 	@Transactional
-	public boolean changePassword(int userId, String password,String newpassword) {
-		User u=dao.fetchById(User.class, userId);
-		if(u.getPassword().equals(password))
-		{
+	public boolean changePassword(int userId, String password, String newpassword) {
+		User u = dao.fetchById(User.class, userId);
+		if (u.getPassword().equals(password)) {
 			u.setPassword(newpassword);
 			dao.save(u);
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
-	
+
 	}
 }

@@ -16,7 +16,6 @@
 				method : 'GET',
 				contentType : 'application/json',
 				success : function(response) {
-					//alert(JSON.stringify(response));
 					response.forEach(function(myOrder) {
 						var orderId = myOrder.orderId;
 						$.ajax({
@@ -24,7 +23,6 @@
 							method : 'GET',
 							contentType : 'application/json',
 							success : function(response) {
-								//alert(JSON.stringify(response));
 								copyFile(response.id);
 								$("#orderList").append("<form class='form-order' id='border'><div id='img-desc'>"
 								+"<img id='img-align' src=new/"+response.imagePath+"></img>"
@@ -83,11 +81,6 @@
 	<div class="header">Order Details</div>
 	<div id="orderList">
 		
-		
 	</div>
-
-
-
-
 </body>
 </html>

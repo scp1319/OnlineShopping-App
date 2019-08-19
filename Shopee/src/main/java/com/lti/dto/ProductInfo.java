@@ -14,7 +14,7 @@ private int categoryId;
 private MultipartFile document;
 
 public ProductInfo() {
-	// TODO Auto-generated constructor stub
+
 }
 public MultipartFile getDocument() {
 	return document;

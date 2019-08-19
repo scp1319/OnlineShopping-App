@@ -14,7 +14,7 @@ public class ChangePasswordInfo {
 	}
 
 	public ChangePasswordInfo() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getPassword() {
