@@ -37,13 +37,14 @@ $(function(){
                         method : 'GET',
                         contentType : 'application/json',
                         success : function(response) {
+                        	copyFile(response.id);
                             //alert(JSON.stringify(response));
                             //sessionStorage.setItem("itemId",response.itemId);
                             $("#cartItemList").append("<div id='sub-float'>"
                             +"<div id='sub-width'>"
                             +"<form class='form-order' id='border'>"
                             +"<div id='img-desc'>"
-                            +"<img id='img-align' src='img/mobile.jpg'></img>"
+                            +"<img id='img-align' src=new/"+response.imagePath+"></img>"
                             +"<div id='align'>"
                             +"<p><h4>Product Name"+response.name+"</h4></p>"
                             +"<p>Price <span class='currencyINR' id='price'>Rs."+response.price+"</span></p><p>"
@@ -89,7 +90,16 @@ $(function(){
 	else{
 		alert("You need to Login!!");
 		window.location.href = "login.html";
-	}	
+	}
+	
+	function copyFile(productId){
+	      
+		$.ajax({
+			url : 'fetchImage.lti?productId=' + productId,
+			method : 'GET',
+			contentType : 'application/json'
+		})
+	}
 })
 
 </script>

@@ -17,9 +17,10 @@ $(function() {
 				url : 'displayProductById.lti?productId=' + productId,
 				method : 'GET',
 				success : function(response) {
+					copyFile(response.id);
 					$("#productDescription")
 							.append(
-									"<div class='column'><img id='img-prod-desc' src='img/mobile.jpg' alt='Snow'></div><div>"
+									"<div class='column'><img id='img-prod-desc' src=new/"+response.imagePath+"></img></div><div>"
 											+ "<h4>Product Name: "
 											+ response.name
 											+ " </h4>"
@@ -34,16 +35,26 @@ $(function() {
 					$("#productDescription").append('<button type="submit">Add to cart</button>')
 				}
 			})
-})
+			
+			
+	function copyFile(productId) {
+
+			$.ajax({
+				url : 'fetchImage.lti?productId=' + productId,
+				method : 'GET',
+				contentType : 'application/json'
+			})
+		}
+	})
 
 	$(function() {
-		$("#productDescription").on("click","",function(evt) {
+		$("#productDescription").on("click", "", function(evt) {
 			evt.preventDefault();
 			var productId = sessionStorage.getItem("selectedProductId");
 			var userId = sessionStorage.getItem("userId");
 			//alert(userId);
 			if (userId != null) {
-	
+
 			} else {
 				alert("You need to Login!!");
 				window.location.href = "login.html";

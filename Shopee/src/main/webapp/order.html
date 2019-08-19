@@ -25,8 +25,9 @@
 							contentType : 'application/json',
 							success : function(response) {
 								//alert(JSON.stringify(response));
+								copyFile(response.id);
 								$("#orderList").append("<form class='form-order' id='border'><div id='img-desc'>"
-								+"<img id='img-align' src='img/mobile.jpg'></img>"
+								+"<img id='img-align' src=new/"+response.imagePath+"></img>"
 								+"<div id='align'><p><h4>"+response.name+"</h4></p>"
 								+"<p>Status: "+myOrder.status+"</p>"
 								+"<div><p>Payment mode: "+myOrder.paymentMode+"</p></div>"
@@ -42,6 +43,16 @@
 			alert("You need to Login!!");
 			window.location.href = "login.html";
 		}
+		
+		function copyFile(productId) {
+
+			$.ajax({
+				url : 'fetchImage.lti?productId=' + productId,
+				method : 'GET',
+				contentType : 'application/json'
+			})
+		}
+		
 	})
 </script>
 
