@@ -159,9 +159,7 @@ $(function() {
 																		this)
 																		.attr(
 																				"selectedProductId");
-																// alert("selectedProductId
-																// is
-																// "+selectedProductId);
+																
 																sessionStorage
 																		.setItem(
 																				"selectedProductId",
@@ -172,8 +170,8 @@ $(function() {
 									})
 						}
 					})
-	// diplay all products
-
+	
+	//image fetch function
 	function copyFile(productId){
 		      
 				$.ajax({
