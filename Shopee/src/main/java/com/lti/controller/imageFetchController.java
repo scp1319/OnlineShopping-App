@@ -37,9 +37,6 @@ public class imageFetchController {
 	 } catch (IOException e) {
 	  e.printStackTrace();
 	 }
-	 
-	 
-	 
-	 
+
 	}
 }

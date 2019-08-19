@@ -1,7 +1,7 @@
 	$(function() {
 		var productId = sessionStorage.getItem("selectedProductId");
 		
-		//alert(productId);
+		
 		$
 				.ajax({
 					url : 'displayProductById.lti?productId=' + productId,

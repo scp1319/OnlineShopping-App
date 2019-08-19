@@ -5,7 +5,7 @@ public class CartValue {
 	private int productId;
 	private int quantity;
 	public CartValue() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public int getCartId() {
 		return cartId;

@@ -36,7 +36,7 @@ public class Order {
    	private User user;
     
     
-    //getter setters
+
 	public int getOrderId() {
 		return orderId;
 	}

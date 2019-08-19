@@ -15,10 +15,9 @@ public class SendMailService {
 	private SimpleMailMessage message;
 	
 	public void send() {
-		message.setTo("bitadrumaitrabm@gmail.com"); //set a proper recipient of the mail
+		message.setTo("bitadrumaitrabm@gmail.com"); 
 		message.setSubject("Test Mail");
 		message.setText("Hi!");
 		mailSender.send(message);
-	//
 	}
 }

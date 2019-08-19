@@ -29,7 +29,7 @@ public class OrderService{
         Item item =dao.fetchById(Item.class, itemId);
         Product product = item.getProduct();
         Cart cart=dao.fetchById(Cart.class, item.getCart().getCartId());
-        //order remaing
+
         Order order = new Order();
         order.setProduct(product);
         order.setStatus("In Transit");
