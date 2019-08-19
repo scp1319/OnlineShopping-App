@@ -5,10 +5,13 @@ $(function() {
 		contentType : 'application/json',
 		success : function(response) {
 			response.forEach(function(product) {
+				
+				      copyFile(product.id);
+				
 						var knowMore = $("<button id='buy'/>")
 						$("#productDisplayList").append(
 										"<div id='border'>"
-												+ "<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
+												+ "<div id='img-desc'><img id='img-align' src=new/"+product.imagePath+"></img>"
 												+ "<div id='align'><h4>"
 												+ product.name
 												+ "</h4>"
@@ -49,11 +52,15 @@ $(function() {
 										success : function(response) {
 											response
 													.forEach(function(product) {
+														
+														   copyFile(product.id);
+														   
+														   
 														var knowMore = $("<button id='buy'/>")
 														$("#productDisplayList")
 																.append(
 																		"<div id='border'>"
-																				+ "<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
+																				+ "<div id='img-desc'><img id='img-align' src=new/"+product.imagePath+"></img>"
 																				+ "<div id='align'><h4>"
 																				+ product.name
 																				+ "</h4>"
@@ -109,11 +116,14 @@ $(function() {
 										success : function(response) {
 											response
 													.forEach(function(product) {
+														
+														copyFile(product.id);
+														
 														var knowMore = $("<button id='buy'/>")
 														$("#productDisplayList")
 																.append(
 																		"<div id='border'>"
-																				+ "<div id='img-desc'><img id='img-align' src='img/mobile.jpg'></img>"
+																				+ "<div id='img-desc'><img id='img-align' src=new/"+product.imagePath+"></img>"
 																				+ "<div id='align'><h4>"
 																				+ product.name
 																				+ "</h4>"
@@ -163,5 +173,13 @@ $(function() {
 						}
 					})
 	// diplay all products
-					
+
+	function copyFile(productId){
+		      
+				$.ajax({
+					url : 'fetchImage.lti?productId=' + productId,
+					method : 'GET',
+					contentType : 'application/json'
+				})
+			}
 })
