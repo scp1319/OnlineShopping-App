@@ -1,5 +1,9 @@
 body {font-family: Arial, Helvetica, sans-serif;
     position:center;}
+    	
+    	* {
+ 			 box-sizing: border-box;
+			}
     
       form {border: 3px solid #f1f1f1;}
     
@@ -60,6 +64,20 @@ body {font-family: Arial, Helvetica, sans-serif;
       opacity: 0.8;
   }
 
+		
+	.column {
+	  float: left;
+	  width: 33.33%;
+	  padding: 5px;
+		}
+	
+	
+	.row::after {
+	  content: "";
+	  clear: both;
+	  display: table;
+	}
+		
       .form-container .btn:hover, .open-button:hover {
         opacity: 5;
       }
