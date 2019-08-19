@@ -34,8 +34,7 @@ public class imageFetchController {
 	 File destfile1 = new File(projlocation + "/new/" + product.getImagePath());
 	 try {
 	  FileUtils.copyFile(srcfile1, destfile1);
-	 } catch (IOException e) 
-	 {
+	 } catch (IOException e) {
 	  e.printStackTrace();
 	 }
 	 
