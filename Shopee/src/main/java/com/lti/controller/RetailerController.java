@@ -41,14 +41,14 @@ public class RetailerController {
 		try 
 		{
 		info.getDocument().transferTo(new File(imagePath));
-		  } 
+		 } 
 		 
 		catch (IOException e) 
 		{
 		  e.printStackTrace();
 		}
 		retailerService.addProducts(info.getName(), info.getBrand(), info.getDescription(), info.getPrice(),
-				info.getStock(), info.getRetailerId(), info.getCategoryId(), imagePath);
+				info.getStock(), info.getRetailerId(), info.getCategoryId(), filename);
 	
 	}
 
